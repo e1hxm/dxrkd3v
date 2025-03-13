@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Динамическая типизация в Javascript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.7.0/remixicon.css">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+     
+    <a href="javascript:history.back()" class="back-button" id="back-button">
+        <i class="ri-arrow-drop-left-line"></i>
+    </a>
+    
+    <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+           <li class="nav__item">
+              <a href="/" class="nav__link active-link">Home</a>
+           </li>
+
+           <li class="nav__item">
+              <a href="/me/" class="nav__link">About</a>
+           </li>
+
+           <li class="nav__item">
+              <a href="/links/" class="nav__link">Links</a>
+           </li>
+
+        </ul>
+
+        
+        <div class="nav__close" id="nav-close">
+           <i class="ri-close-line"></i>
+        </div> 
+     </div>
+     
+     <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-menu-5-line"></i>
+     </div>
+    
+    <div class="author">
+        <a href="/">
+        <img class="author-avatar" src="/images/ava.jpeg">
+        </a>
+    </div>
+    <div class="clearfix">
+    <div class="col12 md:col8 lg:col6 mxauto pl2 pr2">
+    <div class="post">    
+        <nav class="col11 mxauto">
+    <div class="flex align-center justify-center">
+        <a href="/" class="Logo no-underline h2 serif bold mb0">El'ham</a>
+    </div>
+    <div class="mt4 h5 text-center">
+        <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0">Home</a>
+        <a href="/me/" class="gray no-underline inline-block mx2 mt1 md:mt0">About</a>
+        <a href="/links/" class="gray no-underline inline-block mx2 mt1 md:mt0">Links</a>
+      </div>
+</nav>
+        
+<div class="list">
+   <div class="singleHead">
+    <div class="sinleHeadTexts">
+        
+            <h2 class="title__center">Динамическая типизация в Javascript</h2>
+        
+
+        
+            <time class="h5 gray title__date">16 February 2025</time>
+        
+
+        <div><p>Сегодня поговорим про динамическую типизацию в JavaScript.</p>
+<p>Динамическая типизация - это возможность одного типа данных
+превращаться в другой. То есть, строка может стать числом,
+число может стать строкой, объект тоже может стать строкой
+и так далее.</p>
+<p>Так же стоит знать, что в других языках программирования
+встречается статическая типизация данных, это
+когда число всегда остается числом.</p>
+<h3 id="tostring">toString</h3>
+<p>Рассмотрим пример с превращением в строку <code>String</code></p>
+<p>Используем старый оператор, которым редко пользуются
+в разработке <code>String</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="kc">null</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Вернет string
+</span></span></span></code></pre></div><p>Этот оператор просто оборачивает все в ковычки, что
+в свою очередь меняет на строчный тип данных.</p>
+<p>Эту же команду можем запустить с числом.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="mi">4</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Вернет string
+</span></span></span></code></pre></div><p>Четверка, как числовой тип данных превратилась в строку.</p>
+<h3 id="конкатинация">Конкатинация</h3>
+<p>Конкатинация это сложение строки с чем то. Можно складывать
+строки между собой, строки с числами, числа с числами&hellip;</p>
+<p>Пример:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="s2">&#34;hello&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Вернет string
+</span></span></span></code></pre></div><p>Следует помнить, что всегда при сложении со строкой, результатом всегда будет строка.</p>
+<p>При помощи кода на JavaScript можно так же
+формировать CSS стили.</p>
+<p>Давайте посмотрим как можно это реализовать.</p>
+<p>Нам нужно учитывать что нужно будет передавать
+стили в виде строки.</p>
+<p>Назовем переменную например fontSize и допустим
+эта переменная будет формироваться динамически.
+К примеру нам будет приходить значение <code>26</code></p>
+<p>Тут нужно помнить что в CSS у всех свойств
+есть единица измирения, поэтому наш код будет
+примерно таким:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">fontSize</span> <span class="o">=</span> <span class="mi">26</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+</span></span></code></pre></div><p>Так как все данные в CSS хранятся в виде строк,
+поэтому используем конкатинацию и получим в
+результате строчный тип данных.</p>
+<h3 id="tonumber">toNumber</h3>
+<p>Теперь рассмотрим как превратить в числовой тип
+данных.</p>
+<p>Точно так же как и в примере со строками,
+у чисел существует конструкция, которая называется
+<code>Number</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="s2">&#34;4&#34;</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Вернется числовой тип данных
+</span></span></span></code></pre></div><p>Далее разберем более простой и лаконичный
+способ, который называется &ldquo;унарный плюс&rdquo;</p>
+<p>Если говорить простыми словами, то это
+когда мы ставим знак плюса <code>+</code> переди
+каким либо типом данных, это автоматчески
+поменяет значение данных.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="o">+</span><span class="s1">&#39;5&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Вернет числовой тип данных
+</span></span></span></code></pre></div><p>Еще один метод который называется <code>parseInt</code></p>
+<p>Он принимает два аргумента, в первой части
+то что требуется поменять, а во второй части
+ставим <code>10</code> - десятичная система.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="s2">&#34;15px&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</span></span></code></pre></div><p>Этот метод в реальной практике
+используется не так часто.</p>
+<p class="gray">
+Нужно запомнить, данные которые мы получаем 
+от пользователей через сайт, 
+всегда имеют тип `string` 
+</p>
+<h3 id="to-boolean">to Boolean</h3>
+<p>Сначала пройдем по всем значениям,
+которые будут возвращать <code>false</code></p>
+<p>Первое это будет <code>0</code></p>
+<p>Далее следует пустая строка, она тоже
+возвращает <code>false</code></p>
+<p class="gray">
+Строка с пробелом, это уже не пустая строка. 
+</p>
+<p>Далее следуют <code>null</code>, <code>undefined</code> и <code>NaN</code></p>
+<p>Все остальное, что существует в JavaScript
+возвращает <code>true</code></p>
+<p>Небольшой пример с булиновым значением:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">switcher</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nx">switcher</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Working...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Не сработает, 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// switcher = &#39;false&#39;
+</span></span></span></code></pre></div><p>Если в switcher запихнуть <code>1</code> то тогда
+в консольке увидим <code>Working...</code></p>
+<p>Потому что значение станет правдивым -
+<code>true</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">switcher</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nx">switcher</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Working...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="boolean">Boolean</h3>
+<p>Точно так же как и в других типах данных
+у булиновых типов существует свой метод
+это <code>Boolean</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">(</span><span class="s2">&#34;4&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Вернется true
+</span></span></span></code></pre></div><p>Еще один редкий прием, это конда перед
+строкой поставить два восклицательных знака <code>!!</code></p>
+<p>Например:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">!!</span><span class="s2">&#34;4&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Вернет Boolean
+</span></span></span></code></pre></div><p>Это были основы динамической типизации
+в JavaScript</p>
+</div>
+    </div>
+   </div>
+</div>
+ 
+        
+<div class="mt4 h5 text-center">
+    <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0">Home</a>
+    <a href="/me/" class="gray no-underline inline-block mx2 mt1 md:mt0">About</a>
+    <a href="/links/" class="gray no-underline inline-block mx2 mt1 md:mt0">Links</a>
+    <br />
+    <br />
+    <a href="mailto:mail@elham@ro.ru" class="gray no-underline inline-block mx2">
+        Text me
+    </a>
+</div>
+<br />
+<br />
+
+<a href="#" class="scrollup" id="scroll-up">
+    <i class="ri-arrow-drop-up-line"></i>
+ </a>
+ 
+    </div>
+    </div>
+    </div>
+    <script>
+          
+
+const handleBackButton = () => {
+    const backButton = document.getElementById('back-button'); 
+
+    
+    if (backButton) {
+        if (window.scrollY >= 350) {
+            backButton.classList.add('show-scroll');
+        } else {
+            backButton.classList.remove('show-scroll'); 
+        }
+    }
+};
+
+
+window.addEventListener('scroll', handleBackButton);
+
+const backButton = document.getElementById('back-button');
+
+if (backButton) {
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        backButton.classList.add('hidden'); 
+    } else {
+        backButton.classList.remove('hidden'); 
+    }
+}
+        
+let scrollUp = () =>{
+	const scrollUp = document.getElementById('scroll-up')
+	this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+						: scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close');
+
+ 
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        document.body.classList.add('show-menu');
+    });
+}
+
+ 
+if (navClose) {
+    navClose.addEventListener('click', () => {
+        document.body.classList.remove('show-menu');
+    });
+}
+
+ 
+document.addEventListener('click', (event) => {
+    const isClickInsideMenu = navMenu.contains(event.target); 
+    const isClickOnToggle = navToggle.contains(event.target); 
+
+    
+    if (!isClickInsideMenu && !isClickOnToggle && document.body.classList.contains('show-menu')) {
+        document.body.classList.remove('show-menu');
+    }
+});
+
+const navLinks = document.querySelectorAll('.nav__link');
+
+const setActiveLink = () => {
+    const currentPath = window.location.pathname;
+
+    navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+
+        if (linkPath === currentPath) {
+            link.classList.add('active-link');
+        } else {
+            link.classList.remove('active-link');
+        }
+    });
+};
+
+window.addEventListener('load', setActiveLink);
+
+window.addEventListener('popstate', setActiveLink);
+    </script>
+</body>
+</html>

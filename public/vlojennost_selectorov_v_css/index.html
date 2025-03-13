@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вложенность селекторов в CSS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.7.0/remixicon.css">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+     
+    <a href="javascript:history.back()" class="back-button" id="back-button">
+        <i class="ri-arrow-drop-left-line"></i>
+    </a>
+    
+    <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+           <li class="nav__item">
+              <a href="/" class="nav__link active-link">Home</a>
+           </li>
+
+           <li class="nav__item">
+              <a href="/me/" class="nav__link">About</a>
+           </li>
+
+           <li class="nav__item">
+              <a href="/links/" class="nav__link">Links</a>
+           </li>
+
+        </ul>
+
+        
+        <div class="nav__close" id="nav-close">
+           <i class="ri-close-line"></i>
+        </div> 
+     </div>
+     
+     <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-menu-5-line"></i>
+     </div>
+    
+    <div class="author">
+        <a href="/">
+        <img class="author-avatar" src="/images/ava.jpeg">
+        </a>
+    </div>
+    <div class="clearfix">
+    <div class="col12 md:col8 lg:col6 mxauto pl2 pr2">
+    <div class="post">    
+        <nav class="col11 mxauto">
+    <div class="flex align-center justify-center">
+        <a href="/" class="Logo no-underline h2 serif bold mb0">El'ham</a>
+    </div>
+    <div class="mt4 h5 text-center">
+        <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0">Home</a>
+        <a href="/me/" class="gray no-underline inline-block mx2 mt1 md:mt0">About</a>
+        <a href="/links/" class="gray no-underline inline-block mx2 mt1 md:mt0">Links</a>
+      </div>
+</nav>
+        
+<div class="list">
+   <div class="singleHead">
+    <div class="sinleHeadTexts">
+        
+            <h2 class="title__center">Вложенность селекторов в CSS</h2>
+        
+
+        
+            <time class="h5 gray title__date">06 October 2024</time>
+        
+
+        <div><h3>Вложенный или контекстный селектор в CSS</h3>
+                        <p>
+                            Тип обращений который представляет 
+                            собой комбинацию двух селекторов, 
+                            разделенных пробелом. 
+                            Такие селекторы известны как 
+                            вложенные или контекстные и интерпретируются 
+                            справа налево. 
+                            Важно отметить, что эти ссылки могут 
+                            находиться как непосредственно внутри 
+                            тегов с указанным классом, так и внутри вложенных 
+                            тегов на любом уровне глубины.
+                        </p>
+                        <pre><code>.nav__list a { &lsaquo; Обращение к тегу a внутри класса .nav__list    
+  font-size: 16px;
+}</code></pre>
+                        <p>
+                            С помощью пробела можно комбинировать 
+                            любые типы селекторов. 
+                            В данном примере селектор выбирает 
+                            все элементы с классом "warning", 
+                            которые находятся внутри элементов с классом "text".
+                        </p>
+                        <pre><code class="languages: css">.text .warning { &lsaquo; Обращение к селектору 'warning' внутри селектора 'text'     
+  color: red;
+}</code></pre>
+                        <p>
+                            В комбинации можно использовать не только два, 
+                            но и три, четыре и даже больше селекторов. 
+                            Однако, чаще всего ограничиваются двойной 
+                            вложенностью, а тройную используют редко, 
+                            так как чем проще селекторы, 
+                            тем легче и понятнее читать код.
+                        </p>
+                        <h3>Псевдоэлементы и псевдоклассы в CSS</h3>
+                        <p>
+                            Селекторы можно расширять с помощью 
+                            так называемых псевдоклассов, которые бывают разными.
+                        </p>
+                        <p>
+                            Существуют псевдоклассы, 
+                            которые позволяют выбирать элементы с 
+                            учетом их положения относительно других элементов. 
+                            Например, можно выбрать первый или последний элемент, 
+                            каждый второй или каждый третий элемент и так далее.
+                        </p>
+                        <p>
+                            Также есть псевдоклассы, которые добавляют 
+                            возможность реагировать на состояния элементов. 
+                            Например, поле ввода может измениться 
+                            при наведении на него курсора 
+                            мыши или при фокусировке на нем.
+                        </p>
+                        <p>
+                            Кроме того, существуют специальные псевдоклассы, 
+                            которые позволяют реагировать на состояние элементов форм. 
+                            Например, можно выбрать все обязательные или, 
+                            наоборот, необязательные поля формы.
+                        </p>
+                        <p>
+                            Вот небольшие отличия в синтаксисе 
+                            пcевдоэлементов и псевдоклассов. 
+                        </p>
+                        <p>
+                            Псевдоэлементы пишутся с двумя двоеточиями :: 
+                        </p>
+                        <p>
+                            Например ::before и ::after
+                        </p>
+                        <p>
+                            Псевдоклассы пишутся с одним двоеточием :
+                        </p>
+                        <p>
+                            Например :hover
+                        </p></div>
+    </div>
+   </div>
+</div>
+ 
+        
+<div class="mt4 h5 text-center">
+    <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0">Home</a>
+    <a href="/me/" class="gray no-underline inline-block mx2 mt1 md:mt0">About</a>
+    <a href="/links/" class="gray no-underline inline-block mx2 mt1 md:mt0">Links</a>
+    <br />
+    <br />
+    <a href="mailto:mail@elham@ro.ru" class="gray no-underline inline-block mx2">
+        Text me
+    </a>
+</div>
+<br />
+<br />
+
+<a href="#" class="scrollup" id="scroll-up">
+    <i class="ri-arrow-drop-up-line"></i>
+ </a>
+ 
+    </div>
+    </div>
+    </div>
+    <script>
+          
+
+const handleBackButton = () => {
+    const backButton = document.getElementById('back-button'); 
+
+    
+    if (backButton) {
+        if (window.scrollY >= 350) {
+            backButton.classList.add('show-scroll');
+        } else {
+            backButton.classList.remove('show-scroll'); 
+        }
+    }
+};
+
+
+window.addEventListener('scroll', handleBackButton);
+
+const backButton = document.getElementById('back-button');
+
+if (backButton) {
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        backButton.classList.add('hidden'); 
+    } else {
+        backButton.classList.remove('hidden'); 
+    }
+}
+        
+let scrollUp = () =>{
+	const scrollUp = document.getElementById('scroll-up')
+	this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+						: scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close');
+
+ 
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        document.body.classList.add('show-menu');
+    });
+}
+
+ 
+if (navClose) {
+    navClose.addEventListener('click', () => {
+        document.body.classList.remove('show-menu');
+    });
+}
+
+ 
+document.addEventListener('click', (event) => {
+    const isClickInsideMenu = navMenu.contains(event.target); 
+    const isClickOnToggle = navToggle.contains(event.target); 
+
+    
+    if (!isClickInsideMenu && !isClickOnToggle && document.body.classList.contains('show-menu')) {
+        document.body.classList.remove('show-menu');
+    }
+});
+
+const navLinks = document.querySelectorAll('.nav__link');
+
+const setActiveLink = () => {
+    const currentPath = window.location.pathname;
+
+    navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+
+        if (linkPath === currentPath) {
+            link.classList.add('active-link');
+        } else {
+            link.classList.remove('active-link');
+        }
+    });
+};
+
+window.addEventListener('load', setActiveLink);
+
+window.addEventListener('popstate', setActiveLink);
+    </script>
+</body>
+</html>

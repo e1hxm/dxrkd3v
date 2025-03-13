@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объекты в JavaScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.7.0/remixicon.css">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+     
+    <a href="javascript:history.back()" class="back-button" id="back-button">
+        <i class="ri-arrow-drop-left-line"></i>
+    </a>
+    
+    <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+           <li class="nav__item">
+              <a href="/" class="nav__link active-link">Home</a>
+           </li>
+
+           <li class="nav__item">
+              <a href="/me/" class="nav__link">About</a>
+           </li>
+
+           <li class="nav__item">
+              <a href="/links/" class="nav__link">Links</a>
+           </li>
+
+        </ul>
+
+        
+        <div class="nav__close" id="nav-close">
+           <i class="ri-close-line"></i>
+        </div> 
+     </div>
+     
+     <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-menu-5-line"></i>
+     </div>
+    
+    <div class="author">
+        <a href="/">
+        <img class="author-avatar" src="/images/ava.jpeg">
+        </a>
+    </div>
+    <div class="clearfix">
+    <div class="col12 md:col8 lg:col6 mxauto pl2 pr2">
+    <div class="post">    
+        <nav class="col11 mxauto">
+    <div class="flex align-center justify-center">
+        <a href="/" class="Logo no-underline h2 serif bold mb0">El'ham</a>
+    </div>
+    <div class="mt4 h5 text-center">
+        <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0">Home</a>
+        <a href="/me/" class="gray no-underline inline-block mx2 mt1 md:mt0">About</a>
+        <a href="/links/" class="gray no-underline inline-block mx2 mt1 md:mt0">Links</a>
+      </div>
+</nav>
+        
+<div class="list">
+   <div class="singleHead">
+    <div class="sinleHeadTexts">
+        
+            <h2 class="title__center">Объекты в JavaScript</h2>
+        
+
+        
+            <time class="h5 gray title__date">17 November 2024</time>
+        
+
+        <div><p>Task в RS School по JavaScript про Объекты</p>
+            <p>
+              Объекты служат для хранения коллекций различных значений и более сложных сущностей. В
+              JavaScript объекты играют важную роль и являются одной из ключевых составляющих языка.
+            </p>
+            <p>
+              Объект можно создать с помощью фигурных скобок {…}, при этом список свойств является
+              необязательным.
+            </p>
+            <p>
+              Свойство объекта представляет собой пару «ключ: значение», где ключ — это строка (или
+              «имя свойства»), а значение может быть любым типом данных.
+            </p>
+            <p>Пустой объект можно создать, применив один из двух вариантов синтаксиса:</p>
+            <pre><code>// синтаксис "конструктор объекта"   
+let user = new Object();
+// синтаксис "литерал объекта"
+let user = {};</code></pre>
+            <p>Чаще всего используется вариант с фигурными скобками {...}.</p>
+            <p class="gray">
+              Такое объявление называется "литералом объекта" или "литеральной записью".
+            </p>
+            <h3>Литералы и их свойства</h3>
+            <p>
+              При использовании литерального синтаксиса `{...}` можно сразу же добавить в объект
+              несколько свойств в формате «ключ: значение»:
+            </p>
+            <pre><code class="language-javascript">let user = {     // объект
+  name: "John",  // под ключом "name" хранится значение "John"  
+  age: 30        // под ключом "age" хранится значение 30
+};</code></pre>
+            <p>У каждого свойства в объекте есть ключ.</p>
+            <p class="gray">Ключи также называют 'имя' или 'идентификатор'.</p>
+            <p>
+              После имени свойства ставится двоеточие ':', после которого указывается его значение.
+            </p>
+            <p>Если объект содержит несколько свойств, они разделяются запятыми.</p>
+            <p>В объекте 'user' в данный момент содержатся два свойства:</p>
+            <ul>
+              <li>
+                <p>Свойство с именем 'name' и значением 'John'.</p>
+              </li>
+              <li>
+                <p>Свойство с именем 'age' и значением '30'.</p>
+              </li>
+            </ul>
+            <p>Для доступа к свойствам объекта используется запись через точку:</p>
+            <pre><code class="language-javascript">// получаем свойства объекта:   
+console.log( user.name ); // John
+console.log( user.age ); // 30</code></pre>
+            <p>
+              Значение свойства может быть любого типа. Добавим свойство с логическим значением:
+            </p>
+            <pre><code>user.isAdmin = true;      </code></pre>
+            <p>Чтобы удалить свойство, можно воспользоваться оператором 'delete':</p>
+            <pre><code>delete user.age;       </code></pre>
+            <p>
+              Имя свойства может содержать несколько слов, но в таком случае его необходимо
+              заключить в кавычки:
+            </p>
+            <pre><code>let user = {
+  name: "John",
+  age: 30,
+  // имя свойства из нескольких слов должно быть в кавычках  
+  "likes music": true
+};</code></pre>
+            <p>Последнее свойство объекта может заканчиваться запятой.</p>
+            <p>Это называется висячая запятая.</p>
+            <p>
+              Использование висячей запятой упрощает добавление, удаление и перемещение свойств, так
+              как все строки объекта становятся идентичными.
+            </p>
+            <pre><code class="language-javascript">let user = {
+  name: "John",
+  age: 30,  // висячая запятая
+}</code></pre>
+</div>
+    </div>
+   </div>
+</div>
+ 
+        
+<div class="mt4 h5 text-center">
+    <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0">Home</a>
+    <a href="/me/" class="gray no-underline inline-block mx2 mt1 md:mt0">About</a>
+    <a href="/links/" class="gray no-underline inline-block mx2 mt1 md:mt0">Links</a>
+    <br />
+    <br />
+    <a href="mailto:mail@elham@ro.ru" class="gray no-underline inline-block mx2">
+        Text me
+    </a>
+</div>
+<br />
+<br />
+
+<a href="#" class="scrollup" id="scroll-up">
+    <i class="ri-arrow-drop-up-line"></i>
+ </a>
+ 
+    </div>
+    </div>
+    </div>
+    <script>
+          
+
+const handleBackButton = () => {
+    const backButton = document.getElementById('back-button'); 
+
+    
+    if (backButton) {
+        if (window.scrollY >= 350) {
+            backButton.classList.add('show-scroll');
+        } else {
+            backButton.classList.remove('show-scroll'); 
+        }
+    }
+};
+
+
+window.addEventListener('scroll', handleBackButton);
+
+const backButton = document.getElementById('back-button');
+
+if (backButton) {
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        backButton.classList.add('hidden'); 
+    } else {
+        backButton.classList.remove('hidden'); 
+    }
+}
+        
+let scrollUp = () =>{
+	const scrollUp = document.getElementById('scroll-up')
+	this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+						: scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close');
+
+ 
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        document.body.classList.add('show-menu');
+    });
+}
+
+ 
+if (navClose) {
+    navClose.addEventListener('click', () => {
+        document.body.classList.remove('show-menu');
+    });
+}
+
+ 
+document.addEventListener('click', (event) => {
+    const isClickInsideMenu = navMenu.contains(event.target); 
+    const isClickOnToggle = navToggle.contains(event.target); 
+
+    
+    if (!isClickInsideMenu && !isClickOnToggle && document.body.classList.contains('show-menu')) {
+        document.body.classList.remove('show-menu');
+    }
+});
+
+const navLinks = document.querySelectorAll('.nav__link');
+
+const setActiveLink = () => {
+    const currentPath = window.location.pathname;
+
+    navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+
+        if (linkPath === currentPath) {
+            link.classList.add('active-link');
+        } else {
+            link.classList.remove('active-link');
+        }
+    });
+};
+
+window.addEventListener('load', setActiveLink);
+
+window.addEventListener('popstate', setActiveLink);
+    </script>
+</body>
+</html>
