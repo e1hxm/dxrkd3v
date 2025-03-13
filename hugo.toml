@@ -1,6 +1,6 @@
-baseURL = 'https://elham.ru'
+baseURL = 'https://dxrkd3v.ru'
 languageCode = 'ru'
-title = "El'ham"
+title = "Dxrkd3v"
 
 [markup]
   [markup.goldmark]
