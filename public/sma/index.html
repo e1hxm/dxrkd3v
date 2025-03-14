@@ -4,7 +4,7 @@
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Основы препроцессора SASS</title>
+    <title>Sma</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
@@ -86,42 +86,21 @@
       </div>
 </nav>
         
+<h2>Sma</h2>
+
+
+
 <div class="list">
-   <div class="singleHead">
-    <div class="sinleHeadTexts">
-        
-            <h2 class="title__center">Основы препроцессора SASS</h2>
-        
-
-        
-            <time class="h5 gray title__date">09 February 2025</time>
-        
-
-        <div><p>SCSS/SASS — это препроцессоры CSS, которые расширяют возможности стандартных стилей. Они позволяют использовать переменные, вложенные селекторы, миксины, функции и другие удобные инструменты, делая код более структурированным и легким в поддержке. SCSS — это синтаксис, похожий на CSS, а SASS — более лаконичный вариант с отступами. Оба варианта компилируются в обычный CSS, который понимают браузеры. Эти технологии значительно ускоряют разработку и упрощают работу с большими проектами.</p>
-<p>Для себя я выберу SASS, мне больше понравился его синтаксис.</p>
-<h3 id="установка-препроцессора-scsssass">Установка препроцессора SCSS/SASS</h3>
-<p>Мне не очень понрвился вариант ставить сторонее приложение
-для работы с препроцессорами, я пойду по старинке и буду делать все
-через консоль, тем более что я на Линуксе ;)</p>
-<p>На windows все ставится через choco на OS X через brew,
-а на Linux через npm пакеты.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">g</span> <span class="nx">sass</span>
-</span></span></code></pre></div><p>Нужно не забыть прописать <code>sudo</code>, если у вас Линукс вы и без
-меня это прекрасно знаете.</p>
-<p>После установки проверим как все прошло командой <code>sass --version</code>
-если все в порядке, выдаст версию например <code>1.85.0</code></p>
-<p>После установки Sass вы можете легко преобразовывать ваш код в CSS с помощью команды <code>sass</code>. Для этого достаточно указать Sass, где находится исходный файл с расширением <code>.scss</code> или <code>.sass</code>, и куда сохранить скомпилированный CSS.</p>
-<p>Например, выполнив команду <code>sass input.scss output.css</code> в терминале, вы даете Sass указание взять файл <code>input.scss</code>, обработать его и создать готовый CSS-файл с именем <code>output.css</code>. Это позволяет быстро генерировать стили, которые браузеры смогут корректно интерпретировать.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">sass</span> <span class="err">input.scss</span> <span class="err">output.css</span>
-</span></span></code></pre></div><p>Мы можем отслеживать изменения в конкретных файлах или папках, используя флаг <code>--watch</code>. Этот флаг указывает Sass автоматически перекомпилировать CSS каждый раз, когда в отслеживаемых файлах происходят изменения. Например, чтобы следить за изменениями в файле <code>input.scss</code> и автоматически обновлять <code>output.css</code>, достаточно запустить команду:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sass --watch input.scss output.css
-</span></span></code></pre></div><p>Это избавляет от необходимости вручную перекомпилировать код после каждого изменения, что значительно ускоряет процесс разработки.</p>
-<p>Также мы можем отслеживать изменения в целых папках, указав пути к исходной директории и папке для сохранения скомпилированных CSS-файлов. Для этого нужно разделить пути двоеточием. Например:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sass --watch app/sass:public/stylesheets
-</span></span></code></pre></div><p>Эта команда заставит Sass следить за всеми файлами в папке <code>app/sass</code> и автоматически компилировать их в CSS, сохраняя результат в директорию <code>public/stylesheets</code>. Это особенно удобно при работе с большими проектами, где файлы стилей разбиты на множество компонентов.</p>
-</div>
-    </div>
-   </div>
+  
+  <h3>December 2024</h3> 
+  <ul>
+      
+          <li>
+              <time class="gray">02</time> <a href="/first/">Математика для анализа данных</a>
+          </li>
+      
+  </ul>
+  
 </div>
  
         

@@ -21,6 +21,11 @@ hideDate = true
 не касающиеся кода.
 </p>
 <p>
+<a href="/the_hollow_crown/">The Hollow Crown</a> &rsaquo; Пустая Корона
+</p>
+<p>
+<a href="/sma/">Special Math</a> &rsaquo; Специальная математика и основы статистики</p>
+<p>
 <a href="/history/">History</a> &rsaquo; История
 </p>
 <p>
@@ -31,9 +36,6 @@ hideDate = true
 </p>
 <p>
 <a href="/economy/">Economy</a> &rsaquo; Экономика
-</p>
-<p>
-<a href="/the_hollow_crown/">The Hollow Crown</a> &rsaquo; Пустая Корона
 </p>
 <hr style="width: 100px;">
 <p>

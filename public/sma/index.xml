@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sma on Dxrkd3v</title>
+    <link>http://localhost:1313/sma/</link>
+    <description>Recent content in Sma on Dxrkd3v</description>
+    <generator>Hugo</generator>
+    <language>ru</language>
+    <lastBuildDate>Mon, 02 Dec 2024 18:53:24 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/sma/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Математика для анализа данных</title>
+      <link>http://localhost:1313/first/</link>
+      <pubDate>Mon, 02 Dec 2024 18:53:24 +0300</pubDate>
+      <guid>http://localhost:1313/first/</guid>
+      <description>&lt;p&gt;Начало сессии и нового предмета - &amp;ldquo;Математика для&#xA;анализа данных&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;Математика для анализа данных состоит из базовых&#xA;вещей. Нам придется погрузиться в некоторые детали.&lt;/p&gt;&#xA;&lt;p&gt;Эти знания пригодятся тем кто собирается&#xA;работать аналитиком данных и для тех разработчиков&#xA;которые будут иметь дело с ИИ.&lt;/p&gt;&#xA;&lt;p&gt;Поговорим для начала про линейную алгебру.&lt;/p&gt;&#xA;&lt;p&gt;Это такой небольшой модуль, который будет основой&#xA;для работы с нашими данными.&lt;/p&gt;&#xA;&lt;p&gt;Обычно высшая математика начинается с линейной&#xA;алгебры, мы тоже начнем с нее.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
