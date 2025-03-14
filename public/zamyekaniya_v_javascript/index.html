@@ -4,7 +4,7 @@
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Замыкания в JavaScript</title>
+    <title>Замыкание и лексическое окружение в JavaScript</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.7.0/remixicon.css">
     <link
             rel="stylesheet"
@@ -74,7 +74,7 @@
    <div class="singleHead">
     <div class="sinleHeadTexts">
         
-            <h2 class="title__center">Замыкания в JavaScript</h2>
+            <h2 class="title__center">Замыкание и лексическое окружение в JavaScript</h2>
         
 
         
@@ -86,13 +86,10 @@
 <p>Возьмем небольщой кусок кода, который
 уже попадался в этом курсе</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">logNumber</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">logNumber</span><span class="p">();</span>
 </span></span></code></pre></div><p>Нужно помнить что JavaScript выполнит этот код
 с помощью интерпритатора последовательно, строка
@@ -100,7 +97,62 @@
 <p>На строчке <code>let number = 5</code> тип данных изначально
 будет <code>undefined</code> мы туда помещаем значение <code>5</code></p>
 <p>Дальше интерпритатор натыкается на создание функции.</p>
-<p>Переменная logNumber</p>
+<p>Переменная <code>logNumber</code> прописана с помощью <code>functon declaration</code>
+и поэтому она уже существует в контексте еще до того как
+интерпретатор дойдет до нее, когда пойдет по коду построчно.
+И мы можем вызвать эту функцию до ее объявления.
+Как мы и поступили.</p>
+<p>Обратим внимание что <code>logNumber</code> идет без аргументов, это
+значит что функции потребуется откуда то взять <code>number</code></p>
+<p>Это мы сейчас и будем выяснять.</p>
+<p>Дальше в нашем коде идет перезапись значения переменной
+<code>number</code> - мы меняем значение <code>5</code> на <code>6</code></p>
+<p>И в самом низу, идет запуск самой функции.
+Когда она воспроизводится, функция обращается к какому-то
+значению <code>number</code> и возвращает нам значение. Давайте
+узнаем об этом подробнее.</p>
+<p>Как и ожидалось, при запуске кода, в консоль получаем
+цифру <code>6</code> - это актуальное значение переменной <code>number</code></p>
+<p>Поскольку внутри функции, сначала идет обращение к
+переменной <code>number</code> по ссылке, то наша функция
+сначала проверяет первое значение, которое равно 5,
+а потом чекает дальнейшие изминения, и выкидывает
+в консольку актуальное значение.</p>
+<p>Давайте попробуем разобраться, почему так происходит
+не только на уровне логики, но и вообще на уровне
+внутренностей языка JavaScript</p>
+<p>Тут следует разобрать такое понятие как &ldquo;Лексическое Окружение&rdquo;</p>
+<h3 id="лексическое-окружение">Лексическое Окружение</h3>
+<p>В JavaScript у каждой выполняемой функции, блока кода
+есть скрытый объект, который называется - &ldquo;лексическое окружение&rdquo;</p>
+<p class="gray">
+Это внутренний, технический и скрытый объект.
+</p>
+<p>Лексическое окружение делится на 2 части,
+на внутренее и на внешнее.</p>
+<p>Для того чтобы увидеть, что происходит с кодом в нашем примере,
+воспользуемся дебаггером и брейкпоинтом</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">debagger</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">logNumber</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">logNumber</span><span class="p">();</span> <span class="nx">debagger</span>
+</span></span></code></pre></div><p>Внесем небольшие изминения в наш пример и добавим строчку
+во внутреннюю область видимости функции,
+с новым значением переменной.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">debagger</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">logNumber</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">debagger</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">logNumber</span><span class="p">();</span> <span class="nx">debagger</span>
+</span></span></code></pre></div><p>В консоль выведется значение локальной переменной
+которая равна <code>4</code></p>
+<p>Замыкание в функции, если говорить простыми словами,
+то это когда функция что то ищет локально, и если не
+находит то происходит обращение к глобальному коду.</p>
 </div>
     </div>
    </div>
