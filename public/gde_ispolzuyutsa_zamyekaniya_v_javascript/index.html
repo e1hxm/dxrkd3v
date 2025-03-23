@@ -127,6 +127,87 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">person</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="s2">&#34;Mia&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// &#34;Mia&#34;
 </span></span></span></code></pre></div><p>В данном примере переменные <code>_name</code> и <code>_age</code> остаются скрытыми, а доступ к ним возможен только через методы, предоставленные замыканием.</p>
+<h3 id="колбэки-и-обработчики-событий">Колбэки и обработчики событий</h3>
+<p>Замыкания часто используются при работе с асинхронными операциями, такими как обработчики событий и таймеры. Замыкание позволяет функции внутри обработчика продолжать иметь доступ к переменным, даже если она выполняется позже.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createTimer</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">timeLeft</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">timeLeft</span><span class="o">--</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="c1">// Замыкание продолжает работать с переменной
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Осталось: </span><span class="si">${</span><span class="nx">timeLeft</span><span class="si">}</span><span class="sb"> секунд`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">timeLeft</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Время вышло!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">createTimer</span><span class="p">();</span>
+</span></span></code></pre></div><p>Здесь замыкание позволяет функции внутри <code>setInterval</code> продолжать использовать переменную <code>timeLeft</code>, которая изменяется каждую секунду.</p>
+<h3 id="кеширование-результатов">Кеширование результатов</h3>
+<p>Замыкания также могут использоваться для кеширования результатов вычислений, чтобы избежать повторных затрат времени на вычисления одинаковых значений. Этот подход называется мемоизацией.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">memoize</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">cache</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">cache</span><span class="p">[</span><span class="nx">arg</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Получено из кеша&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">cache</span><span class="p">[</span><span class="nx">arg</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">(</span><span class="nx">arg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">cache</span><span class="p">[</span><span class="nx">arg</span><span class="p">]</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">slowFunction</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Выполняется сложное вычисление...&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">memoizedFunction</span> <span class="o">=</span> <span class="nx">memoize</span><span class="p">(</span><span class="nx">slowFunction</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">memoizedFunction</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span> <span class="c1">// Выполняется сложное вычисление... 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">memoizedFunction</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span> <span class="c1">// Получено из кеша 10
+</span></span></span></code></pre></div><p>В данном примере замыкание сохраняет результат вычисления функции и при следующем вызове возвращает его из кеша, что значительно улучшает производительность.</p>
+<h3 id="partial-application">Partial Application</h3>
+<p>Замыкания используются для создания функций с заранее заданными аргументами. Этот прием называется частичным применением.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">multiply</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">partiallyApply</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">arg1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">arg2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">fn</span><span class="p">(</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="kr">double</span> <span class="o">=</span> <span class="nx">partiallyApply</span><span class="p">(</span><span class="nx">multiply</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kr">double</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>  <span class="c1">// 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kr">double</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span> <span class="c1">// 20
+</span></span></span></code></pre></div><p>В этом примере замыкание позволяет создать новую функцию <code>double</code>, которая всегда умножает на <code>2</code>, предварительно зафиксировав первый аргумент функции <code>multiply</code>.</p>
+<h3 id="использование-с-замыканиями-в-итераторах-и-генераторах">Использование с замыканиями в итераторах и генераторах</h3>
+<p>Еще одна полезная сфера применения замыканий — это работа с итераторами и генераторами. Замыкания позволяют хранить состояние между вызовами, что идеально подходит для итераций.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createCounter</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">next</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">reset</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nx">createCounter</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">counter</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// 1
+</span></span></span></code></pre></div><p>Здесь замыкание хранит состояние счетчика между вызовами метода next, позволяя сбрасывать и продолжать отсчет.</p>
+<p>Замыкания позволяют JavaScript-программистам работать с приватными данными, асинхронностью, кешированием и многими другими задачами. Они являются неотъемлемой частью эффективного кода и обеспечивают высокий уровень гибкости при проектировании приложений.</p>
 </div>
     </div>
    </div>
