@@ -6,8 +6,15 @@
     <description>Recent content on Dxrkd3v</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <lastBuildDate>Wed, 12 Mar 2025 12:10:24 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 13 Mar 2025 12:10:24 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Компилятор кода</title>
+      <link>http://localhost:1313/kompilyator_coda/</link>
+      <pubDate>Thu, 13 Mar 2025 12:10:24 +0300</pubDate>
+      <guid>http://localhost:1313/kompilyator_coda/</guid>
+      <description>&lt;p&gt;Компилятор работает иначе, чем интерпретатор. Вместо того чтобы выполнять код построчно, он сначала полностью анализирует программу, оптимизирует её и только потом превращает в машинный код, готовый к запуску.&lt;/p&gt;&#xA;&lt;p&gt;Это позволяет избежать лишней работы во время выполнения: код анализируется один раз, а затем просто исполняется. За счет этого программы, скомпилированные заранее, работают быстрее, ведь процессор получает уже готовые инструкции, а не ждет, пока их «разберут на лету».&lt;/p&gt;&#xA;&lt;p&gt;Компиляция также помогает заранее выявлять ошибки в коде. Если где-то допущена синтаксическая ошибка или используется неподходящий тип данных, компилятор сразу сообщит об этом, еще до запуска программы. Это делает разработку надежнее, хоть и добавляет дополнительный шаг перед запуском.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Интерпретатор кода</title>
       <link>http://localhost:1313/interpretator_coda/</link>
