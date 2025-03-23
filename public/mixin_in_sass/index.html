@@ -111,6 +111,70 @@
 </span></span><span class="line"><span class="cl">  <span class="k">@include</span><span class="nd"> button-style</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>В данном примере мы создается миксин <code>button-style</code>, который задает общие стили для кнопок. Далее, с помощью директивы <code>@include</code>, мы включаем этот миксин в класс <code>.button</code>.</p>
+<p>Миксины могут принимать параметры, что делает их еще более гибкими. Параметры задаются в круглых скобках, и их можно  использовать внутри миксина, чтобы менять стили в зависимости от переданных значений.</p>
+<p>Пример миксина с параметрами:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="k">@mixin</span><span class="nf"> button-style</span><span class="p">(</span><span class="nv">$bg-color</span><span class="o">,</span> <span class="nv">$font-size</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">padding</span><span class="o">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$bg-color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">color</span><span class="o">:</span> <span class="ni">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">font-size</span><span class="o">:</span> <span class="nv">$font-size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">border-radius</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">border</span><span class="o">:</span> <span class="ni">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nc">.button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">@include</span><span class="nd"> button-style</span><span class="p">(</span><span class="mh">#3498db</span><span class="o">,</span> <span class="mi">16</span><span class="kt">px</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nc">.secondary-button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">@include</span><span class="nd"> button-style</span><span class="p">(</span><span class="mh">#2ecc71</span><span class="o">,</span> <span class="mi">14</span><span class="kt">px</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Здесь миксин принимает два параметра: <code>$bg-color</code> и <code>$font-size</code>. Мы можем передавать разные значения при использовании миксина, что позволяет легко менять стили без дублирования кода.</p>
+<p>Так же можно задать значения по умолчанию для параметров. Это полезно, когда нужно, чтобы параметр был обязательным, но при этом можно было использовать стандартные значения.</p>
+<p>Пример миксина с умолчанимями:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="k">@mixin</span><span class="nf"> button-style</span><span class="p">(</span><span class="nv">$bg-color</span><span class="o">:</span> <span class="mh">#3498db</span><span class="o">,</span> <span class="nv">$font-size</span><span class="o">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">padding</span><span class="o">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$bg-color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">color</span><span class="o">:</span> <span class="ni">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">font-size</span><span class="o">:</span> <span class="nv">$font-size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">border-radius</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">border</span><span class="o">:</span> <span class="ni">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nc">.button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">@include</span><span class="nd"> button-style</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">  <span class="c1">// использует значения по умолчанию
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nc">.secondary-button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">@include</span><span class="nd"> button-style</span><span class="p">(</span><span class="mh">#2ecc71</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">  <span class="c1">// только меняется цвет фона
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><p>Здесь, если не передавать параметры, используются значения по умолчанию. В случае с <code>.secondary-button</code>, передается только один параметр, и второй остается по умолчанию.</p>
+<p>Миксины часто используются для управления медиа-запросами. Это позволяет централизовать все медиазапросы в одном месте и сделать код чище.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="k">@mixin</span><span class="nf"> media-query</span><span class="p">(</span><span class="nv">$breakpoint</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">@if</span> <span class="nv">$breakpoint</span> <span class="o">==</span> <span class="s1">&#39;small&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">@media</span> <span class="p">(</span><span class="na">max-width</span><span class="o">:</span> <span class="mi">600</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">@content</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">@else if</span> <span class="nv">$breakpoint</span> <span class="o">==</span> <span class="s1">&#39;medium&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">@media</span> <span class="p">(</span><span class="na">max-width</span><span class="o">:</span> <span class="mi">900</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">@content</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nc">.container</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">@include</span><span class="nd"> media-query</span><span class="p">(</span><span class="s1">&#39;small&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">background-color</span><span class="o">:</span> <span class="no">red</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">@include</span><span class="nd"> media-query</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">background-color</span><span class="o">:</span> <span class="no">blue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>В этом примере создается миксин <code>media-query</code>, который принимает параметр <code>$breakpoint</code> и изменяет стили в зависимости от заданного размера экрана. С помощью директивы <code>@content</code> мы вставляем код внутри медиазапроса.</p>
+<p>Миксины в Sass нужны для упрощения работы с CSS. Они позволяют избежать дублирования кода, улучшить структуру стилей и сделать проект более гибким.</p>
 </div>
     </div>
    </div>
