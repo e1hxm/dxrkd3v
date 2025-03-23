@@ -84,31 +84,18 @@
     <script>
         /*=============== Показать кнопку наверх ===============*/ 
 
-const handleBackButton = () => {
-    const backButton = document.getElementById('back-button'); 
+        document.addEventListener('DOMContentLoaded', () => {
+    const backButton = document.getElementById('back-button');
 
-    
     if (backButton) {
-        if (window.scrollY >= 350) {
-            backButton.classList.add('show-scroll');
+        // Если главная страница — скрываем кнопку
+        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+            backButton.classList.add('hidden');
         } else {
-            backButton.classList.remove('show-scroll'); 
+            backButton.classList.remove('hidden');
         }
     }
-};
-
-
-window.addEventListener('scroll', handleBackButton);
-
-const backButton = document.getElementById('back-button');
-
-if (backButton) {
-    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-        backButton.classList.add('hidden'); 
-    } else {
-        backButton.classList.remove('hidden'); 
-    }
-}
+});
         
 let scrollUp = () =>{
 	const scrollUp = document.getElementById('scroll-up')
