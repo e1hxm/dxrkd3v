@@ -6,8 +6,15 @@
     <description>Recent content on Dxrkd3v</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <lastBuildDate>Fri, 14 Mar 2025 11:00:24 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 15 Mar 2025 11:00:24 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Как работают замыкания в JavaScript</title>
+      <link>http://localhost:1313/kak_rabotaut_zamykaniya_v_javascript/</link>
+      <pubDate>Sat, 15 Mar 2025 11:00:24 +0300</pubDate>
+      <guid>http://localhost:1313/kak_rabotaut_zamykaniya_v_javascript/</guid>
+      <description>&lt;p&gt;Замыкание в JavaScript — это концепция, при которой внутренняя функция имеет доступ к переменным своей внешней функции, даже если внешняя функция уже завершила выполнение. Это происходит благодаря тому, как JavaScript управляет областью видимости.&lt;/p&gt;&#xA;&lt;p&gt;Когда функция создается, она захватывает все переменные из своей области видимости. Если внутренняя функция возвращается или используется за пределами своей родительской функции, она сохраняет ссылку на эти переменные. Таким образом, внутренний код функции «помнит» данные, которые были доступны в момент её создания, и продолжает работать с ними, даже если родительская функция завершила своё выполнение.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Что такое замыкания в JavaScript</title>
       <link>http://localhost:1313/zamykaniya_v_javascript_prodoljenie/</link>
