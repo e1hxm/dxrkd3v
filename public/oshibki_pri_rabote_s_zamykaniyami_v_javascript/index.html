@@ -97,7 +97,103 @@
             <time class="h5 gray title__date">17 March 2025</time>
         
 
-        <div></div>
+        <div><p>Замыкания — это мощный инструмент, но в работе с ними есть несколько подводных камней, которые могут вызвать ошибки. В этой части разберем проблемы, с которыми можно столкнуться при работе с замыканиями, и научимся их обходить.</p>
+<h3 id="memory-leaks--утечка-памяти">Memory Leaks / Утечка памяти</h3>
+<p>Когда замыкание сохраняет ссылку на переменные из внешней функции, они не могут быть удалены из памяти, пока замыкание не уничтожится. Если переменные содержат большие объекты, это может привести к утечке памяти.</p>
+<p>Пример с Memory Leaks</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createLargeObject</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">largeArray</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1000</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;Большие данные&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">largeArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> 
+</span></span><span class="line"><span class="cl">        <span class="c1">// Доступ к большому объекту
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">largeObjectClosure</span> <span class="o">=</span> <span class="nx">createLargeObject</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Даже после того, как createLargeObject завершил выполнение, 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// большая память, занимаемая largeArray, остаётся в памяти, пока замыкание существует.
+</span></span></span></code></pre></div><p>Чтобы избежать учечки памяти нужно следить за тем чтобы замыкания не сохраняли ссылки на большие и ненужные объекты.</p>
+<p>Если данные больше явно не будут использованы, то лучше удалить ссылки на них, чтобы сборщик мусора смог очистить память.</p>
+<h3 id="ошибка-с-циклами-и-замыканиями">Ошибка с циклами и замыканиями</h3>
+<p>Одна из наиболее распространенных ошибок при использовании замыканий — это неправильное поведение переменных внутри циклов. В частности, если замыкание использует переменную, которая изменяется на каждой итерации цикла, может возникнуть неожиданное поведение.</p>
+<p>Пример кода с ошибкой в цикле:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createFunctions</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">funcs</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">funcs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">funcs</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">functions</span> <span class="o">=</span> <span class="nx">createFunctions</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">functions</span><span class="p">[</span><span class="mi">0</span><span class="p">]();</span> <span class="c1">// 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">functions</span><span class="p">[</span><span class="mi">1</span><span class="p">]();</span> <span class="c1">// 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">functions</span><span class="p">[</span><span class="mi">2</span><span class="p">]();</span> <span class="c1">// 3
+</span></span></span></code></pre></div><p>Это происходит потому, что переменная <code>i</code> является глобальной для всех функций внутри цикла. Замыкание «запоминает» ссылку на переменную <code>i</code>, а не её значение на момент выполнения функции. На момент вызова, переменная <code>i</code> уже равна <code>3</code>, что приводит к одинаковому результату для всех функций.</p>
+<p>Давайте исправим это недорозумение использовав <code>let</code> вместо <code>var</code>, что поможет создать отдельную область видимости для каждой итерации:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createFunctions</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">funcs</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">funcs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">funcs</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">functions</span> <span class="o">=</span> <span class="nx">createFunctions</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">functions</span><span class="p">[</span><span class="mi">0</span><span class="p">]();</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">functions</span><span class="p">[</span><span class="mi">1</span><span class="p">]();</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">functions</span><span class="p">[</span><span class="mi">2</span><span class="p">]();</span> <span class="c1">// 2
+</span></span></span></code></pre></div><p>Используя <code>let</code>, каждая итерация цикла будет иметь свою собственную переменную <code>i</code>, и замыкания будут работать корректно.</p>
+<h3 id="замыкания-в-асинхронных-функциях">Замыкания в асинхронных функциях</h3>
+<p>Во время использования замыкания в асинхронных функциях, таких как <code>setTimeout</code> или <code>setInterval</code>, возникает риск, что замыкание может использовать устаревшее значение переменной, которое уже изменилось.</p>
+<p>Пример с ошибкой в <code>setTimeout</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createTimer</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">timeLeft</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">timeLeft</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span> <span class="nx">i</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">timeLeft</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">createTimer</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">// Весь вывод будет &#34;0&#34; пять раз
+</span></span></span></code></pre></div><p>Как и в случае с циклами, замыкания внутри <code>setTimeout</code> ссылаются на одну и ту же переменную <code>timeLeft</code>, которая изменяется в цикле. К моменту выполнения каждого таймера значение <code>timeLeft</code> будет равно <code>0</code>.</p>
+<p>Исправим это код:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createTimer</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">timeLeft</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">timeLeft</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span> <span class="nx">i</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">timeLeft</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">createTimer</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 5, 4, 3, 2, 1
+</span></span></span></code></pre></div><p>Теперь каждый <code>setTimeout</code> использует актуальное значение переменной <code>timeLeft</code>.</p>
+<h3 id="модификация-переменных-внутри-замыкания">Модификация переменных внутри замыкания</h3>
+<p>Очень важно помнить, что если переменные в замыкании изменяются, это может привести к неожиданным результатам, особенно если функции в замыкании не изолированы от изменений внешних данных.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">makeCounter</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">count</span><span class="o">++</span><span class="p">;</span> <span class="c1">// Эта переменная изменяется
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nx">makeCounter</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">());</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">());</span> <span class="c1">// 2
+</span></span></span></code></pre></div><p>Модификация переменных внутри замыкания может вызвать сбои, если предполагается, что эти данные остаются неизменными. Важно тщательно продумывать, когда и как переменные в замыкании должны изменяться.</p>
+<p>Замыкания требуют осторожности и внимательности при использовании. Чтобы избежать ошибок, важно следить за утечками памяти, правильно работать с асинхронными функциями и корректно использовать замыкания внутри циклов и обработчиков.</p>
+</div>
     </div>
    </div>
 </div>

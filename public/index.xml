@@ -13,7 +13,7 @@
       <link>http://localhost:1313/oshibki_pri_rabote_s_zamykaniyami_v_javascript/</link>
       <pubDate>Mon, 17 Mar 2025 12:53:24 +0300</pubDate>
       <guid>http://localhost:1313/oshibki_pri_rabote_s_zamykaniyami_v_javascript/</guid>
-      <description></description>
+      <description>&lt;p&gt;Замыкания — это мощный инструмент, но в работе с ними есть несколько подводных камней, которые могут вызвать ошибки. В этой части разберем проблемы, с которыми можно столкнуться при работе с замыканиями, и научимся их обходить.&lt;/p&gt;&#xA;&lt;h3 id=&#34;memory-leaks--утечка-памяти&#34;&gt;Memory Leaks / Утечка памяти&lt;/h3&gt;&#xA;&lt;p&gt;Когда замыкание сохраняет ссылку на переменные из внешней функции, они не могут быть удалены из памяти, пока замыкание не уничтожится. Если переменные содержат большие объекты, это может привести к утечке памяти.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Где используются замыкания в JavaScript</title>
