@@ -6,8 +6,15 @@
     <description>Recent content on Dxrkd3v</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <lastBuildDate>Tue, 11 Mar 2025 12:53:24 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 12 Mar 2025 12:10:24 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Интерпретатор кода</title>
+      <link>http://localhost:1313/interpretator_coda/</link>
+      <pubDate>Wed, 12 Mar 2025 12:10:24 +0300</pubDate>
+      <guid>http://localhost:1313/interpretator_coda/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Замыкание и лексическое окружение в JavaScript</title>
       <link>http://localhost:1313/zamyekaniya_v_javascript/</link>
@@ -387,11 +394,11 @@
       <description>&lt;p&gt;&#xD;&#xA;              Всякая экономическая деятельность базируется на приминении имеющихся экономических&#xD;&#xA;              ресурсов для получения за счет этого соответствующего дохода.&#xD;&#xA;            &lt;/p&gt;&#xD;&#xA;            &lt;p&gt;&#xD;&#xA;              Факторные доходы в экономике &amp;rsaquo; денежные поступления, которые получает&#xD;&#xA;              собственник ресурсов от их использования в производственном процессе.&#xD;&#xA;            &lt;/p&gt;&#xD;&#xA;            &lt;p&gt;&#xD;&#xA;              На практике выделяют несколько типов вознагрождений в качестве факторных доходов, в&#xD;&#xA;              зависимости от вида факторов проиозводства:&#xD;&#xA;            &lt;/p&gt;&#xD;&#xA;            &lt;ul&gt;&#xD;&#xA;              &lt;li&gt;&#xD;&#xA;                &lt;p&gt;&#xD;&#xA;                  Рента &amp;rsaquo; (например &#34;земельная&#34; или &#34;горная&#34;) вознаграждение за использование&#xD;&#xA;                  природных ресурсов.&#xD;&#xA;                &lt;/p&gt;&#xD;&#xA;              &lt;/li&gt;&#xD;&#xA;              &lt;li&gt;&#xD;&#xA;                &lt;p&gt;Процент &amp;rsaquo; вознаграждение за использование денежного капитала&lt;/p&gt;&#xD;&#xA;              &lt;/li&gt;&#xD;&#xA;              &lt;li&gt;&#xD;&#xA;                &lt;p&gt;Зароботная плата &amp;rsaquo; вознаграждение за труд&lt;/p&gt;</description>
     </item>
     <item>
-      <title>First</title>
+      <title>Математика для анализа данных</title>
       <link>http://localhost:1313/first/</link>
       <pubDate>Mon, 02 Dec 2024 18:53:24 +0300</pubDate>
       <guid>http://localhost:1313/first/</guid>
-      <description>&lt;p&gt;Когда (a \ne 0), квадратное уравнение (ax^2 + bx + c = 0) имеет два решения.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Начало сессии и нового предмета - &amp;ldquo;Математика для&#xA;анализа данных&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;Математика для анализа данных состоит из базовых&#xA;вещей. Нам придется погрузиться в некоторые детали.&lt;/p&gt;&#xA;&lt;p&gt;Эти знания пригодятся тем кто собирается&#xA;работать аналитиком данных и для тех разработчиков&#xA;которые будут иметь дело с ИИ.&lt;/p&gt;&#xA;&lt;p&gt;Поговорим для начала про линейную алгебру.&lt;/p&gt;&#xA;&lt;p&gt;Это такой небольшой модуль, который будет основой&#xA;для работы с нашими данными.&lt;/p&gt;&#xA;&lt;p&gt;Обычно высшая математика начинается с линейной&#xA;алгебры, мы тоже начнем с нее.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Экономические блага</title>
