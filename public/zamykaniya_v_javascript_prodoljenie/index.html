@@ -112,8 +112,30 @@
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">greetAnna</span> <span class="o">=</span> <span class="nx">createGreeting</span><span class="p">(</span><span class="s2">&#34;Анна&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="nx">greetAnna</span><span class="p">();</span> <span class="c1">// &#34;Привет, Анна!&#34;
 </span></span></span></code></pre></div><p>Тут функция <code>createGreeting</code> получает <code>name</code>
-и возвращает новую функцию, которая просто выводит
-<code>Привет, ${name}!.</code></p>
+и возвращает новую функцию, которая просто выводит:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">Привет</span><span class="p">,</span> <span class="nx">$</span><span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">!</span><span class="p">.</span>
+</span></span></code></pre></div><p>Когда мы вызываем createGreeting(&ldquo;Elle&rdquo;), переменная name сохраняется внутри.</p>
+<p>Даже после завершения createGreeting, вызов greetElle() все еще «помнит» имя &ldquo;Элли&rdquo;.</p>
+<p>JavaScript устроен так, что если внутренняя функция использует переменные из внешней области видимости, движок их не удаляет.</p>
+<h3 id="посмотрим-как-выглядят-замыкания-в-javascript-под-капотом">Посмотрим как выглядят замыкания в JavaScript под капотом</h3>
+<p>Чтобы лучше понять, как JavaScript хранит данные, посмотрим на небольшой кусочек кода:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">counter</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// Переменная внутри функции
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">count</span><span class="o">++</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">myCounter</span> <span class="o">=</span> <span class="nx">counter</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">myCounter</span><span class="p">();</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">myCounter</span><span class="p">();</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">myCounter</span><span class="p">();</span> <span class="c1">// 3
+</span></span></span></code></pre></div><p>Хотя <code>counter()</code> выполнилась, переменная <code>count</code> не исчезает, потому что внутренняя функция на нее ссылается. Это и есть замыкание: функция «захватила» переменную count, и она остается в памяти.</p>
+<p>Чаще всего замыкания используются в создании приватных переменных, в обработчиках событий (<code>onclick</code>, <code>setTimeout</code>) и в кэшировании вычислений.</p>
+<p>Замыкание – это механизм, позволяющий функциям «запоминать» переменные даже после завершения их родительской функции. Это мощный инструмент, который делает JavaScript гибким и удобным.</p>
 </div>
     </div>
    </div>
