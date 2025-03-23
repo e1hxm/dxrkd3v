@@ -6,8 +6,15 @@
     <description>Recent content in Css on Dxrkd3v</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <lastBuildDate>Thu, 20 Feb 2025 18:53:24 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 01 Mar 2025 12:53:24 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/css/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Миксины в препроцессорах SCSS/SASS</title>
+      <link>http://localhost:1313/mixin_in_sass/</link>
+      <pubDate>Sat, 01 Mar 2025 12:53:24 +0300</pubDate>
+      <guid>http://localhost:1313/mixin_in_sass/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Фрагментация кода в препроцессоре SASS</title>
       <link>http://localhost:1313/partials_sass/</link>

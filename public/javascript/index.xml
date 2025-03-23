@@ -6,8 +6,36 @@
     <description>Recent content in Javascript on Dxrkd3v</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <lastBuildDate>Tue, 11 Mar 2025 12:53:24 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 12:53:24 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ошибки при работе с замыканиями в JavaScript</title>
+      <link>http://localhost:1313/oshibki_pri_rabote_s_zamykaniyami_v_javascript/</link>
+      <pubDate>Mon, 17 Mar 2025 12:53:24 +0300</pubDate>
+      <guid>http://localhost:1313/oshibki_pri_rabote_s_zamykaniyami_v_javascript/</guid>
+      <description>&lt;p&gt;Замыкания — это мощный инструмент, но в работе с ними есть несколько подводных камней, которые могут вызвать ошибки. В этой части разберем проблемы, с которыми можно столкнуться при работе с замыканиями, и научимся их обходить.&lt;/p&gt;&#xA;&lt;h3 id=&#34;memory-leaks--утечка-памяти&#34;&gt;Memory Leaks / Утечка памяти&lt;/h3&gt;&#xA;&lt;p&gt;Когда замыкание сохраняет ссылку на переменные из внешней функции, они не могут быть удалены из памяти, пока замыкание не уничтожится. Если переменные содержат большие объекты, это может привести к утечке памяти.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Где используются замыкания в JavaScript</title>
+      <link>http://localhost:1313/gde_ispolzuyutsa_zamyekaniya_v_javascript/</link>
+      <pubDate>Sun, 16 Mar 2025 11:00:24 +0300</pubDate>
+      <guid>http://localhost:1313/gde_ispolzuyutsa_zamyekaniya_v_javascript/</guid>
+      <description>&lt;p&gt;Замыкания — это не просто теоретическая концепция, а инструмент, который широко используется в реальных проектах. Они позволяют решать множество задач, от создания приватных данных до улучшения производительности. Разберемся, где замыкания могут быть полезны в реальной разработке.&lt;/p&gt;&#xA;&lt;h3 id=&#34;приватные-переменные&#34;&gt;Приватные переменные&lt;/h3&gt;&#xA;&lt;p&gt;JavaScript не имеет прямой поддержки для создания приватных переменных, как, например, в других языках программирования. Однако с помощью замыканий можно эмулировать такую функциональность. Это позволяет скрыть данные от внешнего доступа и манипулировать ими только через специально предоставленные методы.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Как работают замыкания в JavaScript</title>
+      <link>http://localhost:1313/kak_rabotaut_zamykaniya_v_javascript/</link>
+      <pubDate>Sat, 15 Mar 2025 11:00:24 +0300</pubDate>
+      <guid>http://localhost:1313/kak_rabotaut_zamykaniya_v_javascript/</guid>
+      <description>&lt;p&gt;Замыкание в JavaScript — это концепция, при которой внутренняя функция имеет доступ к переменным своей внешней функции, даже если внешняя функция уже завершила выполнение. Это происходит благодаря тому, как JavaScript управляет областью видимости.&lt;/p&gt;&#xA;&lt;p&gt;Когда функция создается, она захватывает все переменные из своей области видимости. Если внутренняя функция возвращается или используется за пределами своей родительской функции, она сохраняет ссылку на эти переменные. Таким образом, внутренний код функции «помнит» данные, которые были доступны в момент её создания, и продолжает работать с ними, даже если родительская функция завершила своё выполнение.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Что такое замыкания в JavaScript</title>
+      <link>http://localhost:1313/zamykaniya_v_javascript_prodoljenie/</link>
+      <pubDate>Fri, 14 Mar 2025 11:00:24 +0300</pubDate>
+      <guid>http://localhost:1313/zamykaniya_v_javascript_prodoljenie/</guid>
+      <description>&lt;p&gt;Представим, что я работаю в офисе, и у меня есть персональный шкафчик с документами. У других сотрудников тоже есть свои шкафчики, но они не могут заглянуть в мой, а я – в их. Однако я помню, что лежит внутри моего  шкафа, даже если уйду на обед или в отпуск.&lt;/p&gt;&#xA;&lt;p&gt;В JavaScript такая же ситуация: когда функция запоминает переменные из своей области видимости, даже если выполняется вне этой области, это называется замыканием (closure).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Замыкание и лексическое окружение в JavaScript</title>
       <link>http://localhost:1313/zamyekaniya_v_javascript/</link>
