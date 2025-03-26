@@ -4,7 +4,7 @@
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git</title>
+    <title>Локальное лексическое окружение в JavaScript</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
@@ -86,25 +86,30 @@
       </div>
 </nav>
         
-<h2>Git</h2>
-
-
-
 <div class="list">
-  
-  <h3>October 2024</h3> 
-  <ul>
-      
-          <li>
-              <time class="gray">03</time> <a href="/pervichnaya_nastroika_git/">Первичная настройка Git</a>
-          </li>
-      
-          <li>
-              <time class="gray">03</time> <a href="/git_branches/">Команды для веток в GIT</a>
-          </li>
-      
-  </ul>
-  
+   <div class="singleHead">
+    <div class="sinleHeadTexts">
+        
+            <h2 class="title__center">Локальное лексическое окружение в JavaScript</h2>
+        
+
+        
+            <time class="h5 gray title__date">24 March 2025</time>
+        
+
+        <div><p>Локальное окружение создается всякий раз, при создании функцию. Переменные, объявленные внутри этой функции, становятся доступными только в её контексте, то есть внутри самой функции. Эти переменные не могут быть доступны за пределами функции, если только не возвращаются как результат выполнения функции.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">localVar</span> <span class="o">=</span> <span class="s1">&#39;Я локальная переменная&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localVar</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">  <span class="c1">// Доступна здесь
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localVar</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">// Ошибка, переменная не существует вне функции
+</span></span></span></code></pre></div><p>В этом примере переменная <code>localVar</code> существует только внутри <code>test</code> — её не будет видно за пределами этой функции. Это и есть локальное лексическое окружение.</p>
+</div>
+    </div>
+   </div>
 </div>
  
         
