@@ -6,8 +6,15 @@
     <description>Recent content on Dxrkd3v</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <lastBuildDate>Tue, 25 Mar 2025 12:00:24 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 26 Mar 2025 09:00:24 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Метод getElementsByTagName в JavaScript</title>
+      <link>http://localhost:1313/metod_getelementsbytagname_v_js/</link>
+      <pubDate>Wed, 26 Mar 2025 09:00:24 +0300</pubDate>
+      <guid>http://localhost:1313/metod_getelementsbytagname_v_js/</guid>
+      <description>&lt;p&gt;Метод &lt;code&gt;getElementsByTagName&lt;/code&gt; в &lt;code&gt;JavaScript&lt;/code&gt; позволяет находить элементы на странице по названию их тега. Это очень удобно, если нужно работать с группой однотипных элементов, например, всеми &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; и так далее.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;div&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//вернет все дивки со страницы&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Метод возвращает &lt;code&gt;HTMLCollection&lt;/code&gt; — живую коллекцию элементов, которые соответствуют указанному тегу. Если элементы добавятся или удалятся из &lt;code&gt;DOM&lt;/code&gt;, коллекция автоматически обновится.&lt;/p&gt;&#xA;&lt;p&gt;Если таких элементов на странице нет, метод вернёт пустую коллекцию.&lt;/p&gt;&#xA;&lt;p&gt;Запуск поиска всех параграфов на странице:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Внешнее лексическое окружение в JavaScript</title>
       <link>http://localhost:1313/vneshnee_leksicheskoe_okrujenie_v_js/</link>
