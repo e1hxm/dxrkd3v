@@ -98,6 +98,17 @@
         
 
         <div><p>Свойство <code>cssText</code> позволяет задать несколько CSS-стилей элементу сразу одной строкой. Это удобно, когда нужно быстро применить множество стилей без использования отдельных свойств объекта <code>style</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span> <span class="o">=</span> <span class="s1">&#39;правило1; правило2; ...&#39;</span><span class="p">;</span>
+</span></span></code></pre></div><p>Реальный пример кода по применению нескольких стилей</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">box</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myBox&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">box</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span> <span class="o">=</span> <span class="s1">&#39;width: 200px; height: 100px; background: black;&#39;</span><span class="p">;</span>
+</span></span></code></pre></div><p>Пример добавления новых стилей, без удаления старых</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">box</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span> <span class="o">+=</span> <span class="s1">&#39;border: 2px solid black;&#39;</span><span class="p">;</span>
+</span></span></code></pre></div><p>Если обратиться к <code>cssText</code>, то он вернет данные в виде строки</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">// &#34;width: 200px; height: 100px; background: black;&#34;
+</span></span></span></code></pre></div><p>Если требуется добавлять стили без перезаписи существующих, лучше использовать <code>classList.add()</code> для работы с классами или отдельные свойства <code>style</code>.</p>
+<p><code>cssText</code> — это быстрый способ массового применения стилей, но с ним нужно быть осторожным: он удаляет все предыдущие <code>inline-стили</code>. Если стиль элемента меняется динамически, лучше использовать <code>style.property</code> или классы.</p>
 </div>
     </div>
    </div>
