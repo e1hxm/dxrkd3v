@@ -17,11 +17,11 @@ element.style.color = 'red';
 Объект `style` содержит свойства, соответствующие CSS-стилям. Однако названия записываются в `camelCase`, а не через дефис `-` как в обычном `css`
 
 
-| CSS-свойство     | JavaScript-эквивалент                  |
+| CSS-свойство     | JavaScript                  |
 |------------------|---------------------------------------|
-| background-color | element.style.backgroundColor = 'blue' |
-| font-size        | element.style.fontSize = '20px'       |
-| margin-top       | element.style.marginTop = '10px'      |
+| background-color | backgroundColor = 'blue' |
+| font-size        | fontSize = '20px'       |
+| margin-top       | marginTop = '10px'      |
 
 <br />
 
