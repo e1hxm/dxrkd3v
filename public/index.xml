@@ -6,8 +6,15 @@
     <description>Recent content on Dxrkd3v</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <lastBuildDate>Sun, 30 Mar 2025 12:10:24 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 30 Mar 2025 14:11:24 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Атрибуты событий в JavaScript</title>
+      <link>http://localhost:1313/atributye_sobytiy_v_js/</link>
+      <pubDate>Sun, 30 Mar 2025 14:11:24 +0300</pubDate>
+      <guid>http://localhost:1313/atributye_sobytiy_v_js/</guid>
+      <description>&lt;p&gt;Атрибуты событий — это способ привязать обработчики событий прямо в &lt;code&gt;HTML-элементы&lt;/code&gt;. С помощью этих атрибутов можно реагировать на действия пользователя, такие как клики, ввод текста или изменение значений.&lt;/p&gt;&#xA;&lt;p&gt;Атрибуты событий — это атрибуты, которые добавляются в &lt;code&gt;HTML-разметку&lt;/code&gt; для того, чтобы назначить обработчик события на элементы. Примеры таких атрибутов включают &lt;code&gt;onclick&lt;/code&gt;, &lt;code&gt;onmouseover&lt;/code&gt;, &lt;code&gt;onkeyup&lt;/code&gt; и другие.&lt;/p&gt;&#xA;&lt;p&gt;Пример простого использования атрибута события:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;button&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;onclick&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;alert(&amp;#39;Кнопка нажата!&amp;#39;)&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Нажми&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;меня&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/button&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;В этом примере когда пользователь нажимает на кнопку, браузер срабатывает на событие &lt;code&gt;click&lt;/code&gt; и вызывает функцию &lt;code&gt;alert()&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>События в JavaScript</title>
       <link>http://localhost:1313/sobyetiya_v_dom/</link>
