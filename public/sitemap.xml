@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-03-30T08:03:24+03:00</lastmod>
+    <lastmod>2025-03-30T12:10:24+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/javascript/</loc>
-    <lastmod>2025-03-30T08:03:24+03:00</lastmod>
+    <lastmod>2025-03-30T12:10:24+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/sobyetiya_v_dom/</loc>
+    <lastmod>2025-03-30T12:10:24+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/before_and_after_v_js/</loc>
     <lastmod>2025-03-30T08:03:24+03:00</lastmod>
@@ -76,6 +79,9 @@
   </url><url>
     <loc>http://localhost:1313/textcontent_v_js/</loc>
     <lastmod>2025-03-06T12:00:24+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/insertadjacenthtml_v_js/</loc>
+    <lastmod>2025-03-05T12:00:24+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/css/</loc>
     <lastmod>2025-03-01T12:53:24+03:00</lastmod>
