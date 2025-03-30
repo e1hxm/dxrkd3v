@@ -1,6 +1,6 @@
 +++
 date = '2025-03-26T09:00:24+03:00'
-title = 'Метод getElementsByTagName в JavaScript'
+title = 'Метод getElementsByTagName() в JavaScript'
 categories = [ "javascript" ]
 +++
 

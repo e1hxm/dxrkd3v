@@ -1,6 +1,6 @@
 +++
 date = '2025-03-22T12:00:24+03:00'
-title = 'Метод querySelector в JavaScript'
+title = 'Метод querySelector() в JavaScript'
 categories = [ "javascript" ]
 +++
 

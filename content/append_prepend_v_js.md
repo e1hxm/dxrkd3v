@@ -1,6 +1,6 @@
 +++
 date = '2025-03-30T7:00:24+03:00'
-title = 'Методы append и prepend в JavaScript'
+title = 'Методы append() и prepend() в JavaScript'
 categories = [ "javascript" ]
 +++
 

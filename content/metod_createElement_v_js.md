@@ -1,6 +1,6 @@
 +++
 date = '2025-03-29T10:00:24+03:00'
-title = 'Метод createElement в JavaScript'
+title = 'Метод createElement() в JavaScript'
 categories = [ "javascript" ]
 +++
 

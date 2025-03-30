@@ -4,7 +4,7 @@
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Метод getElementsByTagName() в JavaScript</title>
+    <title>Методы before() и after() в JavaScript</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
@@ -90,30 +90,28 @@
    <div class="singleHead">
     <div class="sinleHeadTexts">
         
-            <h2 class="title__center">Метод getElementsByTagName() в JavaScript</h2>
+            <h2 class="title__center">Методы before() и after() в JavaScript</h2>
         
 
         
-            <time class="h5 gray title__date">26 March 2025</time>
+            <time class="h5 gray title__date">30 March 2025</time>
         
 
-        <div><p>Метод <code>getElementsByTagName</code> в <code>JavaScript</code> позволяет находить элементы на странице по названию их тега. Это очень удобно, если нужно работать с группой однотипных элементов, например, всеми <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;input&gt;</code> и так далее.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//вернет все дивки со страницы
-</span></span></span></code></pre></div><p>Метод возвращает <code>HTMLCollection</code> — живую коллекцию элементов, которые соответствуют указанному тегу. Если элементы добавятся или удалятся из <code>DOM</code>, коллекция автоматически обновится.</p>
-<p>Если таких элементов на странице нет, метод вернёт пустую коллекцию.</p>
-<p>Запуск поиска всех параграфов на странице:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">paragraphs</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">paragraphs</span><span class="p">);</span> <span class="c1">// Выведет коллекцию всех &lt;p&gt;
-</span></span></span></code></pre></div><p>Замена стилей для всех кнопок на странице:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buttons</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">button</span> <span class="k">of</span> <span class="nx">buttons</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">button</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">;</span> <span class="c1">// Все кнопки станут серыми
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></div><p>Достучимся до первого <code>&lt;h1&gt;</code> тега на странице:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">heading</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span> 
-</span></span><span class="line"><span class="cl"><span class="nx">heading</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">&#39;Новый заголовок!&#39;</span><span class="p">;</span>
-</span></span></code></pre></div><p>Метод <code>getElementsByTagName</code> прекрасно подойдет если  нужно быстро получить все элементы определённого тега. Однако если требуется статичный список или сложные селекторы, лучше использовать <code>querySelectorAll</code></p>
+        <div><p>Методы <code>before()</code> и <code>after()</code> позволяют добавлять новые элементы или текст до или после существующего элемента. В отличие от <code>append()</code> и <code>prepend()</code>, они работают не внутри, а рядом с целевым элементом.</p>
+<h3 id="elementbefore--вставка-перед-элементом">element.before() — вставка перед элементом</h3>
+<p>Метод before() добавляет новый контент перед указанным элементом.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">heading</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">newText</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">newText</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">&#39;Тут был Dxrkd3v =)&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">heading</span><span class="p">.</span><span class="nx">before</span><span class="p">(</span><span class="nx">newText</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">// Теперь &lt;p&gt; появится перед &lt;title&gt;
+</span></span></span></code></pre></div><h3 id="elementafter--вставка-после-элемента">element.after() — вставка после элемента</h3>
+<p>Метод <code>after()</code> добавляет контент после указанного элемента.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;submitBtn&#39;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">note</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">note</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">&#39; (Это важно!)&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">button</span><span class="p">.</span><span class="nx">after</span><span class="p">(</span><span class="nx">note</span><span class="p">);</span> <span class="c1">// Теперь &lt;span&gt; появится сразу после кнопки
+</span></span></span></code></pre></div><p>Методы <code>before()</code> и <code>after()</code> помогают добавить элементы перед или после других без сложных манипуляций с родительскими контейнерами. Они делают код чище и проще, особенно при динамической модификации интерфейса.</p>
 </div>
     </div>
    </div>
