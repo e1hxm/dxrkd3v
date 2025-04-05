@@ -6,8 +6,15 @@
     <description>Recent content on Dxrkd3v</description>
     <generator>Hugo</generator>
     <language>ru</language>
-    <lastBuildDate>Sun, 30 Mar 2025 14:43:24 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 31 Mar 2025 10:00:24 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Свойства событий в JavaScript</title>
+      <link>http://localhost:1313/svoistva_sobitiy_v_js/</link>
+      <pubDate>Mon, 31 Mar 2025 10:00:24 +0300</pubDate>
+      <guid>http://localhost:1313/svoistva_sobitiy_v_js/</guid>
+      <description>&lt;p&gt;Каждое событие в &lt;code&gt;JavaScript&lt;/code&gt; содержит множество свойств, которые предоставляют информацию о том, что произошло. Эти свойства позволяют нам понять, какие элементы были вовлечены в событие, какие клавиши были нажаты, где находился курсор и другие детали.&lt;/p&gt;&#xA;&lt;p&gt;Другими словами свойства событий — это данные, которые содержат информацию о событии, когда оно происходит. Эти свойства доступны внутри обработчиков событий и дают возможность узнать, что именно произошло.&lt;/p&gt;&#xA;&lt;p&gt;Пример с &lt;code&gt;event&lt;/code&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;myButton&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;addEventListener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Покажет все свойства события&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     <item>
       <title>Метод addEventListener() в JavaScript</title>
       <link>http://localhost:1313/addeventlistener_v_js/</link>

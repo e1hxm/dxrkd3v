@@ -4,7 +4,7 @@
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories</title>
+    <title>Свойства событий в JavaScript</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
@@ -86,98 +86,26 @@
       </div>
 </nav>
         
-<h2>Categories</h2>
-
-
-
 <div class="list">
-  
-  <h3>March 2025</h3> 
-  <ul>
-      
-          <li>
-              <time class="gray">30</time> <a href="/javascript/">Javascript</a>
-          </li>
-      
-          <li>
-              <time class="gray">01</time> <a href="/css/">Css</a>
-          </li>
-      
-  </ul>
-  
-  <h3>February 2025</h3> 
-  <ul>
-      
-          <li>
-              <time class="gray">08</time> <a href="/npm/">Npm</a>
-          </li>
-      
-  </ul>
-  
-  <h3>January 2025</h3> 
-  <ul>
-      
-          <li>
-              <time class="gray">21</time> <a href="/python/">Python</a>
-          </li>
-      
-          <li>
-              <time class="gray">06</time> <a href="/c/">C</a>
-          </li>
-      
-          <li>
-              <time class="gray">04</time> <a href="/vim/">Vim</a>
-          </li>
-      
-  </ul>
-  
-  <h3>December 2024</h3> 
-  <ul>
-      
-          <li>
-              <time class="gray">30</time> <a href="/english/">English</a>
-          </li>
-      
-          <li>
-              <time class="gray">28</time> <a href="/tis/">Tis</a>
-          </li>
-      
-          <li>
-              <time class="gray">26</time> <a href="/grid/">Grid</a>
-          </li>
-      
-          <li>
-              <time class="gray">25</time> <a href="/flexbox/">Flexbox</a>
-          </li>
-      
-          <li>
-              <time class="gray">11</time> <a href="/economy/">Economy</a>
-          </li>
-      
-          <li>
-              <time class="gray">02</time> <a href="/sma/">Sma</a>
-          </li>
-      
-  </ul>
-  
-  <h3>November 2024</h3> 
-  <ul>
-      
-          <li>
-              <time class="gray">27</time> <a href="/html/">Html</a>
-          </li>
-      
-  </ul>
-  
-  <h3>October 2024</h3> 
-  <ul>
-      
-          <li>
-              <time class="gray">03</time> <a href="/git/">Git</a>
-          </li>
-      
-  </ul>
-  
+   <div class="singleHead">
+    <div class="sinleHeadTexts">
+        
+            <h2 class="title__center">Свойства событий в JavaScript</h2>
+        
+
+        
+            <time class="h5 gray title__date">31 March 2025</time>
+        
+
+        <div><p>Каждое событие в <code>JavaScript</code> содержит множество свойств, которые предоставляют информацию о том, что произошло. Эти свойства позволяют нам понять, какие элементы были вовлечены в событие, какие клавиши были нажаты, где находился курсор и другие детали.</p>
+<p>Другими словами свойства событий — это данные, которые содержат информацию о событии, когда оно происходит. Эти свойства доступны внутри обработчиков событий и дают возможность узнать, что именно произошло.</p>
+<p>Пример с <code>event</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myButton&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span> <span class="c1">// Покажет все свойства события
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></code></pre></div></div>
+    </div>
+   </div>
 </div>
  
         
