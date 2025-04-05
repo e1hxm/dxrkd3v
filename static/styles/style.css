@@ -637,18 +637,18 @@ body.show-menu .nav__toggle {
     }
   }
   
-  /* === Сияние для заголовков и текста === */
+  /* === Сияние для заголовков и текста ===
   h1, h2, h3, h4, h5, p, a {
     animation: glowPulse 4s ease-in-out infinite;
     color: #c0caf5;
     text-shadow: 0 0 0.5px #6671ae;
   }
   
-  /* Для ссылок с плавным свечением при наведении */
+  /* Для ссылок с плавным свечением при наведении 
   a:hover {
     color: #55b7dd;
     text-shadow: 0 0 10px #55b7dd, 0 0 20px #c0caf5;
-  }
+  } */
 
 .m1 {
     margin: 8px;
