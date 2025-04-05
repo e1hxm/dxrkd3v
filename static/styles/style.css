@@ -636,19 +636,30 @@ body.show-menu .nav__toggle {
       text-shadow: 0 0 1px #6671ae;
     }
   }
-  
-  /* === Сияние для заголовков и текста ===
-  h1, h2, h3, h4, h5, p, a {
-    animation: glowPulse 4s ease-in-out infinite;
-    color: #c0caf5;
-    text-shadow: 0 0 0.5px #6671ae;
+  .typed-container {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1rem;
+    color: #8d9cc9;
+    position: relative;
+    animation: neonPulse 4s ease-in-out infinite;
+  }
+
+  .typed-container .typed-cursor {
+    display: inline-block;
+    width: 0.7ch;
+    height: 1.2em;
+    background-color: #8d9cc9; 
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: blink-block 1s steps(1) infinite;
+    animation: neonPulse 4s ease-in-out infinite;
   }
   
-  /* Для ссылок с плавным свечением при наведении 
-  a:hover {
-    color: #55b7dd;
-    text-shadow: 0 0 10px #55b7dd, 0 0 20px #c0caf5;
-  } */
+  /* мигание как в терминале */
+  @keyframes blink-block {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
 
 .m1 {
     margin: 8px;

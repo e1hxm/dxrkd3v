@@ -16,3 +16,23 @@
     <i class="ri-arrow-drop-up-line"></i>
  </a>
 <!--<div class="footer">Подвал сайта</div> -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const el = document.getElementById("typewriter");
+    if (!el) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          el.classList.add("animate");
+          obs.unobserve(el); // запустить один раз
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    observer.observe(el);
+  });
+</script>

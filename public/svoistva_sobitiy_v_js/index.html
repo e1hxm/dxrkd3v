@@ -30,6 +30,7 @@
         <script>
             hljs.highlightAll();
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,13 +98,21 @@
             <time class="h5 gray title__date">31 March 2025</time>
         
 
-        <div><p>Каждое событие в <code>JavaScript</code> содержит множество свойств, которые предоставляют информацию о том, что произошло. Эти свойства позволяют нам понять, какие элементы были вовлечены в событие, какие клавиши были нажаты, где находился курсор и другие детали.</p>
+        <div><p>Каждое событие в <code>JavaScript</code> содержит множество свойств, которые предоставляют информацию о том, что произошло.
+Эти свойства позволяют нам понять, какие элементы были вовлечены в событие, какие клавиши были нажаты, где находился курсор и другие детали.</p>
 <p>Другими словами свойства событий — это данные, которые содержат информацию о событии, когда оно происходит. Эти свойства доступны внутри обработчиков событий и дают возможность узнать, что именно произошло.</p>
 <p>Пример с <code>event</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myButton&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span> <span class="c1">// Покажет все свойства события
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
-</span></span></code></pre></div></div>
+</span></span></code></pre></div><div class="typed-container">
+<span id="typed-2"></span>
+<div class="typed-strings" style="display: none;">
+<p>👉 Покажет все свойства события</p>
+</div>
+</div>
+<div id="typed-strings" style="display: none;">
+</div></div>
     </div>
    </div>
 </div>
@@ -125,7 +134,27 @@
 <a href="#" class="scrollup" id="scroll-up">
     <i class="ri-arrow-drop-up-line"></i>
  </a>
- 
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const el = document.getElementById("typewriter");
+    if (!el) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          el.classList.add("animate");
+          obs.unobserve(el); 
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    observer.observe(el);
+  });
+</script> 
     </div>
     </div>
     </div>
@@ -200,6 +229,37 @@ const setActiveLink = () => {
 window.addEventListener('load', setActiveLink);
 
 window.addEventListener('popstate', setActiveLink);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const typedContainers = document.querySelectorAll('.typed-container');
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const container = entry.target;
+          const typedId = container.querySelector('span').id;
+          const stringsEl = container.querySelectorAll('.typed-strings p');
+
+          const strings = Array.from(stringsEl).map(el => el.textContent);
+
+          new Typed(`#${typedId}`, {
+            strings,
+            typeSpeed: 50,
+            backSpeed: 25,
+            backDelay: 1500,
+            startDelay: 300,
+            loop: false,
+            showCursor: true,
+            cursorChar: '|'
+          });
+
+          obs.unobserve(container); 
+        }
+      });
+    }, { threshold: 0.5 }); 
+
+    typedContainers.forEach(container => observer.observe(container));
+  });
     </script>
 </body>
 </html>

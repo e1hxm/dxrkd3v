@@ -1,0 +1,8 @@
+{{ $lines := .Inner | htmlUnescape | split "\n" }}
+<div class="dojo-typewriter">
+  {{ range $i, $line := $lines }}
+    {{ if ne (trim $line " ") "" }}
+      <div class="dojo-line" style="animation-delay: {{ mul $i 1.5 }}s">{{ $line }}</div>
+    {{ end }}
+  {{ end }}
+</div>
