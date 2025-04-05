@@ -17,11 +17,8 @@ hideDate = true
 </p>
 <hr style="width: 100px;">
 <p>
-Лекции из университетов, института и курсов
+Лекции из университетов и курсов
 не касающиеся кода.
-</p>
-<p>
-<a href="/the_hollow_crown/">The Hollow Crown</a> &rsaquo; Пустая Корона
 </p>
 <p>
 <a href="/sma/">Special Math</a> &rsaquo; Специальная математика и основы статистики</p>

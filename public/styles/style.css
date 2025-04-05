@@ -10,14 +10,21 @@
     margin-top: 20px;
     border-radius: 100%;
     user-select: none;
+    animation: glowBorder 4s ease-in-out infinite;
   }
+
+img{
+    animation: glowBorder 4s ease-in-out infinite;
+}
 /*== Для однострочного кода в тексте ==*/
 .code_line {
     padding: 2px;
     margin: 1px;
+    animation: none;
 }
 .logos {
     vertical-align: middle;
+    animation: none;
 }
 /*==Для логотипов==*/
 .tech_logos{
@@ -25,12 +32,14 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    animation: none;
 }
 .tech_logos img {
     width: 34px;
     max-width: 20px;
     height: auto;
     margin: 20px;
+    animation: none;
 }
 a,
 abbr,
@@ -133,7 +142,7 @@ section {
     display: block;
 }
 a {
-    color: white;
+    color: #c0caf5;
 }
 
 body {
@@ -179,8 +188,8 @@ table {
 }
 body,
 html {
-    background-color: black;
-    color: white;
+    background-color: #000011;
+    color: #c0caf5;
     font-size: 20px;
     line-height: 1.5;
 }
@@ -203,13 +212,157 @@ code {
     border-radius: 4px;
     padding-left: 3px;
     padding-right: 3px;
+    animation: none;
 }
-pre code {
-    padding: 0.5rem;
+
+pre {
+    margin-bottom: 1rem;;
+    padding: 0.2rem;
+    position: relative;
+    background-color: #1e203c;
+    border-radius: 8px;
     overflow: auto;
-    display: block;
-    margin-bottom: 16px;
-}
+    animation: glowBorder 4s ease-in-out infinite;
+    border: 1px solid rgba(192, 202, 245, 0.2);
+  }
+
+  
+  @keyframes glowBorder {
+    0% {
+      box-shadow: 
+        0 0 2px rgba(192, 202, 245, 0.2), 
+        0 0 4px rgba(192, 202, 245, 0.3);
+    }
+    50% {
+      box-shadow: 
+        0 0 6px rgba(192, 202, 245, 0.4), 
+        0 0 16px rgba(192, 202, 245, 0.5);
+    }
+    100% {
+      box-shadow: 
+        0 0 2px rgba(192, 202, 245, 0.2), 
+        0 0 4px rgba(192, 202, 245, 0.3);
+    }
+  }
+
+  @keyframes codeGlowPulse {
+    0% {
+      text-shadow: 0 0 2px transparent;
+    }
+    50% {
+      text-shadow: 0 0 3px currentColor, 0 0 6px currentColor;
+    }
+    100% {
+      text-shadow: 0 0 2px transparent;
+    }
+  }
+
+  @keyframes neonPulse {
+    0% {
+      text-shadow: 0 0 1px transparent;
+    }
+    50% {
+      text-shadow: 0 0 4px currentColor, 0 0 8px currentColor;
+    }
+    100% {
+      text-shadow: 0 0 1px transparent;
+    }
+  }
+
+  /* Общий стиль для всех элементов внутри кода */
+pre code span {
+    animation: neonPulse 4s ease-in-out infinite;
+  }
+  
+  /* Ключевые слова, операторы */
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-literal,
+  .hljs-section,
+  .hljs-link {
+    color: #7aa2f7; /* светло-синий */
+  }
+  
+  /* Строки */
+  .hljs-string,
+  .hljs-attribute,
+  .hljs-template-tag,
+  .hljs-template-variable {
+    color: #54b9b1; /* зелёный неон */
+  }
+  
+  /* Числа, булевы значения */
+  .hljs-number,
+  .hljs-meta,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-symbol {
+    color: #369ce9; /* янтарный, как свеча */
+  }
+  
+  /* Комментарии */
+  .hljs-comment,
+  .hljs-quote {
+    color: #565f89;
+    opacity: 0.6;
+    animation: none; 
+  }
+  
+  /* Функции, классы, переменные */
+  .hljs-title,
+  .hljs-type,
+  .hljs-tag,
+  .hljs-name,
+  .hljs-selector-id,
+  .hljs-selector-class {
+    color: #bb9af7; /* фиолетовый неон */
+  }
+  
+  /* Акценты, эмфазы */
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .hljs-strong {
+    font-weight: bold;
+  }
+  
+  /* Ошибки, важные элементы */
+  .hljs-params,
+  .hljs-error,
+  .hljs-deletion {
+    color: #d277ff; /* тёплый коралловый */
+  }
+  
+  .hljs-addition {
+    color: #a9dc76;
+    background-color: rgba(169, 220, 118, 0.05);
+  }
+
+
+
+  /* === Эффект печатной машинки для комментариев === */
+@keyframes typewriter {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  @keyframes blink {
+    0%, 100% { border-color: transparent }
+    50% { border-color: #c0caf5 }
+  }
+  .typewriter-comment {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #c0caf5;
+    width: 0;
+    animation:
+      typewriter 2s steps(30, end) 1 forwards,
+      blink 0.8s step-end infinite;
+  }
+
+  
+
 .emoji {
     vertical-align: middle;
 }
@@ -327,7 +480,7 @@ h6 {
     bottom: -50%;
     background-color: black;
     color: gray;
-    box-shadow: 0px 0px 10px 3px rgba(254, 254, 254, 0.2);
+    box-shadow: 0px 0px 10px 3px rgba(192, 202, 245, 0.2);
     display: inline-flex;
     align-items: center; 
     justify-content: center; 
@@ -338,10 +491,6 @@ h6 {
     text-decoration: none; 
     width: 42px; 
     height: 42px;
-}
-
-.scrollup:hover {
-    transform: translateY(-.5rem);
 }
 
 /* Показать кнопку наверх */
@@ -358,7 +507,7 @@ h6 {
     top: 1rem;
     background-color: black;
     color: gray;
-    box-shadow: 0px 0px 10px 3px rgba(254, 254, 254, 0.2);
+    box-shadow: 0px 0px 10px 3px rgba(192, 202, 245, 0.2);
     display: inline-flex;
     align-items: center; 
     justify-content: center; 
@@ -452,7 +601,7 @@ body.show-menu .nav__toggle {
     left: 1rem; /* Расстояние от левого края */
     background-color: black;
     color: gray;
-    box-shadow: 0px 0px 10px 3px rgba(254, 254, 254, 0.2);
+    box-shadow: 0px 0px 10px 3px rgba(192, 202, 245, 0.2);
     display: inline-flex; /* Теперь она сразу видна */
     align-items: center;
     justify-content: center;
@@ -471,15 +620,35 @@ body.show-menu .nav__toggle {
     display: none;
 }
 
-/* Эффект при наведении */
-.back-button:hover {
-    transform: translateX(-0.5rem);
-}
-
-
 .hidden {
     display: none;
 }
+
+
+@keyframes glowPulse {
+    0% {
+      text-shadow: 0 0 1px #6671ae;
+    }
+    50% {
+      text-shadow: 0 0 2px #6671ae, 0 0 2px #c0caf5;
+    }
+    100% {
+      text-shadow: 0 0 1px #6671ae;
+    }
+  }
+  
+  /* === Сияние для заголовков и текста === */
+  h1, h2, h3, h4, h5, p, a {
+    animation: glowPulse 4s ease-in-out infinite;
+    color: #c0caf5;
+    text-shadow: 0 0 0.5px #6671ae;
+  }
+  
+  /* Для ссылок с плавным свечением при наведении */
+  a:hover {
+    color: #55b7dd;
+    text-shadow: 0 0 10px #55b7dd, 0 0 20px #c0caf5;
+  }
 
 .m1 {
     margin: 8px;
@@ -4192,11 +4361,11 @@ label {
     border-bottom: 1px solid #e1d6b1;
 }
 a {
-    color: white;
+    color: #c0caf5;
     transition: color 0.2s ease-in;
 }
 a:hover {
-    color: #919190;;
+    color: #7a82ac;
 }
 .post img:not(.emoji).profile {
     max-width: 200px;
