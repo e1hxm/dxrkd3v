@@ -13,15 +13,7 @@ categories = [ "javascript" ]
 
 ```js
 document.getElementById('myButton').addEventListener('click', function(event) {
-  console.log(event); // Покажет все свойства события
+  console.log(event); 
 });
+// Покажет все свойства события
 ```
-
-<div class="typed-container">
-<span id="typed-2"></span>
-<div class="typed-strings" style="display: none;">
-<p>👉 Покажет все свойства события</p>
-</div>
-</div>
-<div id="typed-strings" style="display: none;">
-</div>

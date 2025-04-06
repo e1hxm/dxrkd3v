@@ -188,7 +188,8 @@ table {
 }
 body,
 html {
-    background-color: #000011;
+    position: relative;
+    background: transparent; /* 👈 прозрачность, чтобы видеть видео */
     color: #c0caf5;
     font-size: 20px;
     line-height: 1.5;
@@ -216,15 +217,22 @@ code {
 }
 
 pre {
-    margin-bottom: 1rem;;
+    opacity: 0.8;
+    margin-bottom: 1rem;
     padding: 0.2rem;
     position: relative;
-    background-color: #1e203c;
+    background-color: rgba(30, 32, 60, 0.85); /* только один фон */
     border-radius: 8px;
     overflow: auto;
     animation: glowBorder 4s ease-in-out infinite;
     border: 1px solid rgba(192, 202, 245, 0.2);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px); /* для Safari */
+    box-shadow: 0 0 10px rgba(192, 202, 245, 0.05); /* лёгкое свечение */
   }
+
+
+  
 
   
   @keyframes glowBorder {
@@ -338,30 +346,6 @@ pre code span {
     color: #a9dc76;
     background-color: rgba(169, 220, 118, 0.05);
   }
-
-
-
-  /* === Эффект печатной машинки для комментариев === */
-@keyframes typewriter {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  @keyframes blink {
-    0%, 100% { border-color: transparent }
-    50% { border-color: #c0caf5 }
-  }
-  .typewriter-comment {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #c0caf5;
-    width: 0;
-    animation:
-      typewriter 2s steps(30, end) 1 forwards,
-      blink 0.8s step-end infinite;
-  }
-
-  
 
 .emoji {
     vertical-align: middle;
@@ -651,14 +635,40 @@ body.show-menu .nav__toggle {
     background-color: #8d9cc9; 
     vertical-align: middle;
     margin-left: 2px;
-    animation: blink-block 1s steps(1) infinite;
-    animation: neonPulse 4s ease-in-out infinite;
+    animation: blink-block 4s step-start infinite;
   }
   
-  /* мигание как в терминале */
-  @keyframes blink-block {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+  .bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+  }
+  
+  .bg-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: 
+    brightness(1.5)         /* темнее — для читабельности текста */
+    contrast(1.5)          /* побольше глубины */
+    saturate(0.4)           /* подчёркиваем цвет */
+    hue-rotate(50deg)        /* лёгкий перекос в цвете — футуризм */
+    grayscale(0.1)          /* чуть меньше насыщенности — киберпанк */
+    blur(2px);  
+  }
+  .video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 17, 0.6); /* вот он — #000011, но прозрачный */
+    pointer-events: none; /* чтобы не мешал кликам */
+    z-index: -1; /* под контентом, над видео */
   }
 
 .m1 {

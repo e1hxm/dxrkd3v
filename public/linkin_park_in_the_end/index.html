@@ -30,12 +30,18 @@
         <script>
             hljs.highlightAll();
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="bg-video">
+        <video autoplay muted loop playsinline>
+          <source src="/images/waves.mp4">
+        </video>
+      </div>
      
     <a href="javascript:history.back()" class="back-button" id="back-button">
         <i class="ri-arrow-drop-left-line"></i>
@@ -256,6 +262,8 @@ It doesn't even matter
 <a href="#" class="scrollup" id="scroll-up">
     <i class="ri-arrow-drop-up-line"></i>
  </a>
+
+
  
     </div>
     </div>
@@ -331,6 +339,37 @@ const setActiveLink = () => {
 window.addEventListener('load', setActiveLink);
 
 window.addEventListener('popstate', setActiveLink);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const typedContainers = document.querySelectorAll('.typed-container');
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const container = entry.target;
+          const typedId = container.querySelector('span').id;
+          const stringsEl = container.querySelectorAll('.typed-strings p');
+
+          const strings = Array.from(stringsEl).map(el => el.textContent);
+
+          new Typed(`#${typedId}`, {
+            strings,
+            typeSpeed: 75,
+            backSpeed: 25,
+            backDelay: 1500,
+            startDelay: 300,
+            loop: false,
+            showCursor: true,
+            cursorChar: '|'
+          });
+
+          obs.unobserve(container); 
+        }
+      });
+    }, { threshold: 0.5 }); 
+
+    typedContainers.forEach(container => observer.observe(container));
+  });
     </script>
 </body>
 </html>

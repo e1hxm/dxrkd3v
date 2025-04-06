@@ -37,6 +37,12 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="bg-video">
+        <video autoplay muted loop playsinline>
+          <source src="/images/waves.mp4">
+        </video>
+      </div>
+      <div class="video-overlay"></div>
      
     <a href="javascript:history.back()" class="back-button" id="back-button">
         <i class="ri-arrow-drop-left-line"></i>
@@ -103,16 +109,10 @@
 <p>Другими словами свойства событий — это данные, которые содержат информацию о событии, когда оно происходит. Эти свойства доступны внутри обработчиков событий и дают возможность узнать, что именно произошло.</p>
 <p>Пример с <code>event</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myButton&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span> <span class="c1">// Покажет все свойства события
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
-</span></span></code></pre></div><div class="typed-container">
-<span id="typed-2"></span>
-<div class="typed-strings" style="display: none;">
-<p>👉 Покажет все свойства события</p>
-</div>
-</div>
-<div id="typed-strings" style="display: none;">
-</div></div>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Покажет все свойства события
+</span></span></span></code></pre></div></div>
     </div>
    </div>
 </div>
@@ -136,25 +136,7 @@
  </a>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const el = document.getElementById("typewriter");
-    if (!el) return;
-
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          el.classList.add("animate");
-          obs.unobserve(el); 
-        }
-      });
-    }, {
-      threshold: 0.3
-    });
-
-    observer.observe(el);
-  });
-</script> 
+ 
     </div>
     </div>
     </div>
@@ -244,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           new Typed(`#${typedId}`, {
             strings,
-            typeSpeed: 50,
+            typeSpeed: 75,
             backSpeed: 25,
             backDelay: 1500,
             startDelay: 300,
