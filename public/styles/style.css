@@ -194,31 +194,25 @@ table {
 }
 body,
 html {
-    border: none !important;
     position: relative;
-    background: transparent; /* 👈 прозрачность, чтобы видеть видео */
-    color: #c0caf5;
+    color: #d2c0f5;
     font-size: 20px;
     line-height: 1.5;
+    background: #080012;
 }
+
 @media(min-width: 48rem) {
     body,
     html {
         font-size: 18px;
     }
 }
-.post,
-.container,
-main,
-article,
-section {
-  border: none !important;
-}
+
 body {
     -webkit-font-smoothing: antialiased;
     font-family: "JetBrains Mono", monospace;
     overflow-x: hidden;
-    text-rendering: optimizeLegibility;
+    background-color: #080012;
 }
 code {
     font-family: "JetBrains Mono", monospace;
