@@ -17,3 +17,15 @@ document.getElementById('myButton').addEventListener('click', function(event) {
 });
 // Покажет все свойства события
 ```
+
+#### Основные свойства событий
+
+1 - `type`
+
+Свойство `type` сообщает, какой тип события произошел (например, `click`, `keydown`, `submit`).
+
+```js
+document.getElementById('myButton').addEventListener('click', function(event) {
+  console.log(event.type); // "click"
+});
+```

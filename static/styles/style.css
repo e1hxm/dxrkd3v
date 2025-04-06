@@ -1,3 +1,5 @@
+
+
 /*== Добавим аватар ==*/
 .author {
     font-family: "JetBrains Mono";
@@ -188,6 +190,7 @@ table {
 }
 body,
 html {
+    border: none !important;
     position: relative;
     background: transparent; /* 👈 прозрачность, чтобы видеть видео */
     color: #c0caf5;
@@ -199,6 +202,13 @@ html {
     html {
         font-size: 18px;
     }
+}
+.post,
+.container,
+main,
+article,
+section {
+  border: none !important;
 }
 body {
     -webkit-font-smoothing: antialiased;
@@ -354,11 +364,6 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
-}
-td,
-th {
-    border: 1px solid #e1e3e4;
-    padding: 0.25rem 0.5rem;
 }
 
 
@@ -653,11 +658,11 @@ body.show-menu .nav__toggle {
     height: 100%;
     object-fit: cover;
     filter: 
-    brightness(1.5)         /* темнее — для читабельности текста */
-    contrast(1.5)          /* побольше глубины */
-    saturate(0.4)           /* подчёркиваем цвет */
-    hue-rotate(50deg)        /* лёгкий перекос в цвете — футуризм */
-    grayscale(0.1)          /* чуть меньше насыщенности — киберпанк */
+    brightness(1.8)         /* темнее — для читабельности текста */
+    contrast(1.4)          /* побольше глубины */
+    saturate(0.5)           /* подчёркиваем цвет */
+    hue-rotate(10deg)        /* лёгкий перекос в цвете — футуризм */
+    grayscale(0.6)          /* чуть меньше насыщенности — киберпанк */
     blur(2px);  
   }
   .video-overlay {
