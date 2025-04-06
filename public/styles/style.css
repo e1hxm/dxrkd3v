@@ -1,8 +1,8 @@
 * {
-    box-shadow: none !important;
-    border: none !important;
-    outline: none !important;
-  }
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
 
 /*== Добавим аватар ==*/
 .author {
@@ -655,6 +655,7 @@ body.show-menu .nav__toggle {
     height: 100vh;
     overflow: hidden;
     z-index: -1;
+    border: none !important;
   }
   
   .bg-video video {
@@ -669,8 +670,10 @@ body.show-menu .nav__toggle {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 17, 0.6); /* вот он — #000011, но прозрачный */
+    backdrop-filter: blur(2px) saturate(1.2) contrast(1.2) brightness(2);
     pointer-events: none; /* чтобы не мешал кликам */
     z-index: -1; /* под контентом, над видео */
+    border: none !important;
   }
 
 .m1 {
