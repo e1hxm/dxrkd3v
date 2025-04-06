@@ -1,4 +1,8 @@
-
+* {
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+  }
 
 /*== Добавим аватар ==*/
 .author {
@@ -657,13 +661,6 @@ body.show-menu .nav__toggle {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: 
-    brightness(1.8)         /* темнее — для читабельности текста */
-    contrast(1.4)          /* побольше глубины */
-    saturate(0.5)           /* подчёркиваем цвет */
-    hue-rotate(10deg)        /* лёгкий перекос в цвете — футуризм */
-    grayscale(0.6)          /* чуть меньше насыщенности — киберпанк */
-    blur(2px);  
   }
   .video-overlay {
     position: fixed;
