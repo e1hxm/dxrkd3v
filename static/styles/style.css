@@ -195,10 +195,10 @@ table {
 body,
 html {
     position: relative;
-    color: #d2c0f5;
+    color: #a0b1dd;
     font-size: 20px;
     line-height: 1.5;
-    background: #080012;
+    background-color: #080012;
 }
 
 @media(min-width: 48rem) {
@@ -212,7 +212,6 @@ body {
     -webkit-font-smoothing: antialiased;
     font-family: "JetBrains Mono", monospace;
     overflow-x: hidden;
-    background-color: #080012;
 }
 code {
     font-family: "JetBrains Mono", monospace;
@@ -405,6 +404,17 @@ h6 {
     line-height: 1.25;
     margin: 2rem 0 0.75rem;
     font-family: "JetBrains Mono", monospace;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+{
+    color: 
 }
 .serif {
     font-family: "JetBrains Mono", monospace;
@@ -4381,7 +4391,7 @@ label {
     border-bottom: 1px solid #e1d6b1;
 }
 a {
-    color: #c0caf5;
+    color: #a0b1dd;
     transition: color 0.2s ease-in;
 }
 a:hover {
