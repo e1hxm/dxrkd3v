@@ -11,10 +11,17 @@ hideDate = true
 <h2 class="mt5">
     links
 </h2>
-<p>
+<div class="typed-container">
+<span id="typed-2"></span>
+<div class="typed-strings" style="display: none;">
+<p>Ссылки на дополнительные разделы блога и 
+полезные ресурсы.</p>
+</div>
+</div>
+<!-- <p>
 Ссылки на дополнительные разделы блога и 
 полезные ресурсы.
-</p>
+</p> -->
 <hr style="width: 100px;">
 <p>
 Лекции из университетов и курсов

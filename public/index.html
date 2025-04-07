@@ -96,10 +96,13 @@
     <h2 class="mt5">
         blog
     </h2>
-    <p>
-        Моя база знаний, которую я создаю изучая курсы по веб разработке, 
-        языков программирования и новых технологий. 
-    </p>
+    <div class="typed-container">
+        <span id="typed-1"></span>
+        <div class="typed-strings" style="display: none;">
+        <p>Моя база знаний, которую я создаю изучая курсы по веб разработке, языков программирования и новых технологий.</p>
+        </div>
+        </div>
+    
 </div>
 <div class="list">
     
@@ -749,6 +752,15 @@
  
         
 <div class="mt4 h5 text-center">
+    <div class="typed-container">
+        <span id="typed-111111"></span>
+            <div class="typed-strings" style="display: none;">
+                <p>
+                Подпишись на видео 🤙 <a href="#">YouTube</a>
+                </p>
+            </div>
+        </div>
+    <br />
     <a href="/" class="gray no-underline inline-block mx2 mt1 md:mt0">Home</a>
     <a href="/me/" class="gray no-underline inline-block mx2 mt1 md:mt0">About</a>
     <a href="/links/" class="gray no-underline inline-block mx2 mt1 md:mt0">Links</a>
@@ -799,14 +811,14 @@
         enable: true,
         speed: 0.4,
         opacity_min: 0.1,
-        sync: false
+        sync: true
       }
     },
     size: {
-      value: 4,
+      value: 2,
       random: true,
       anim: {
-        enable: false
+        enable: true
       }
     },
     line_linked: {
@@ -834,8 +846,7 @@
         mode: "repulse"
       },
       onclick: {
-        enable: true,
-        mode: "push"
+        enable: false
       },
       resize: true
     },
@@ -922,35 +933,38 @@ window.addEventListener('load', setActiveLink);
 window.addEventListener('popstate', setActiveLink);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const typedContainers = document.querySelectorAll('.typed-container');
+  const typedContainers = document.querySelectorAll('.typed-container');
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const container = entry.target;
-          const typedId = container.querySelector('span').id;
-          const stringsEl = container.querySelectorAll('.typed-strings p');
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const container = entry.target;
+        const typedId = container.querySelector('span').id;
+        const stringsEl = container.querySelectorAll('.typed-strings p');
 
-          const strings = Array.from(stringsEl).map(el => el.textContent);
+        
+        const strings = Array.from(stringsEl).map(el => el.innerHTML);
 
-          new Typed(`#${typedId}`, {
-            strings,
-            typeSpeed: 75,
-            backSpeed: 25,
-            backDelay: 1500,
-            startDelay: 300,
-            loop: false,
-            showCursor: true,
-            cursorChar: '|'
-          });
+        new Typed(`#${typedId}`, {
+          strings,
+          typeSpeed: 75,
+          backSpeed: 25,
+          backDelay: 1500,
+          startDelay: 300,
+          loop: false,
+          showCursor: true,
+          cursorChar: '|',
+          contentType: 'html'
+        });
 
-          obs.unobserve(container); 
-        }
-      });
-    }, { threshold: 0.5 }); 
+        obs.unobserve(container);
+      }
+    });
+  }, { threshold: 0.5 });
 
-    typedContainers.forEach(container => observer.observe(container));
-  });
+  typedContainers.forEach(container => observer.observe(container));
+});
+
     </script>
 </body>
 </html>

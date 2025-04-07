@@ -7,12 +7,15 @@ hideTitle = true
 hideDate = true
 +++
 <h2>about</h2>
+<div class="typed-container">
+<span id="typed-2"></span>
+<div class="typed-strings" style="display: none;">
 <p>
-Привет, это Dxrkd3v 👋
+Привет, это Cxd3 👋 <br>
+И я веб-разработчик 🖖
 </p>
-<p>
-И я веб-разработчик.
-</p>
+</div>
+</div>
 <hr style="width: 100px;">
 <h3 class="mt2" style="padding-top: 20px;">profiles</h3>
 <p>

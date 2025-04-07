@@ -649,7 +649,6 @@ body.show-menu .nav__toggle {
     font-size: 1rem;
     color: #8d9cc9;
     position: relative;
-    animation: neonPulse 4s ease-in-out infinite;
   }
 
   .typed-container .typed-cursor {
