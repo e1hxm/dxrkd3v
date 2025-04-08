@@ -26,7 +26,6 @@ img{
 .code_line {
     padding: 2px;
     margin: 1px;
-    animation: none;
 }
 .logos {
     vertical-align: middle;
@@ -215,14 +214,22 @@ body {
     overflow-x: hidden;
 }
 code {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.90rem;
-    background: #1a1b26;
-    border-radius: 4px;
-    padding-left: 3px;
-    padding-right: 3px;
-    animation: none;
+    border: 1px solid #180127;
+  padding: 1px 1px;
+  border-radius: 2px;
+  background-color: #1a1a1a;
+  color: #b8a1de;
+  font-family: 'JetBrains Mono', monospace;
 }
+p > code {
+    border: 1px solid #1a1a1a;
+    padding: 1px 1px;
+    border-radius: 4px;
+    animation: neonPulse 4s ease-in-out infinite;
+    background-color: #1a1a1a;
+    color: #eee;
+    font-family: 'JetBrains Mono', monospace;
+  }
 
 pre {
     opacity: 0.8;
